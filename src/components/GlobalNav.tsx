@@ -81,7 +81,7 @@ export function GlobalNav() {
         </div>
 
         {/* Center-left: Nav links */}
-        <ul className="hidden lg:flex items-center gap-6">
+        <ul className="hidden lg:flex items-center gap-6 flex-1 justify-center mx-8">
           {navLinks.map((link) => (
             <li key={link.label}>
               <a
