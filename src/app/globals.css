@@ -42,7 +42,7 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
-  /* Soundcore custom tokens */
+  /* Novexion custom tokens */
   --color-brand: var(--brand);
   --color-brand-hover: var(--brand-hover);
   --color-surface-dark: var(--surface-dark);
@@ -52,15 +52,15 @@
 }
 
 :root {
-  /* Soundcore brand palette */
-  --brand: #17bbef;
-  --brand-hover: #48cffa;
-  --brand-gradient: linear-gradient(90deg, #17bbef 0%, #17bbef 100%);
+  /* Novexion brand palette — Azul Marino / Azul Eléctrico / Blanco (Manual visual de marca) */
+  --brand: #1e90ff;
+  --brand-hover: #4da6ff;
+  --brand-gradient: linear-gradient(90deg, #1e90ff 0%, #0a1f44 100%);
 
   /* Backgrounds */
-  --surface-dark: #000000;
-  --surface-deep: #080a0f;
-  --surface-subnav: #1e2024;
+  --surface-dark: #0a1f44;
+  --surface-deep: #071531;
+  --surface-subnav: #0d2a5c;
   --surface-card: rgba(255, 255, 255, 0.06);
   --surface-card-border: rgba(255, 255, 255, 0.12);
   --surface-light: #f7f8fa;
@@ -79,62 +79,62 @@
   --btn-radius: 24px;
 
   /* shadcn tokens mapped to soundcore dark theme */
-  --background: oklch(0.04 0 0);
+  --background: oklch(0.19 0.045 258);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.1 0 0);
+  --card: oklch(0.24 0.05 258);
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.1 0 0);
+  --popover: oklch(0.24 0.05 258);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.73 0.16 218);
+  --primary: oklch(0.6 0.2 258);
   --primary-foreground: oklch(0.04 0 0);
   --secondary: oklch(0.18 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.18 0 0);
   --muted-foreground: oklch(0.5 0 0);
-  --accent: oklch(0.73 0.16 218);
+  --accent: oklch(0.6 0.2 258);
   --accent-foreground: oklch(0.04 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.73 0.16 218);
+  --ring: oklch(0.6 0.2 258);
   --radius: 0.625rem;
   --sidebar: oklch(0.12 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.73 0.16 218);
+  --sidebar-primary: oklch(0.6 0.2 258);
   --sidebar-primary-foreground: oklch(0.04 0 0);
   --sidebar-accent: oklch(0.18 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 12%);
-  --sidebar-ring: oklch(0.73 0.16 218);
+  --sidebar-ring: oklch(0.6 0.2 258);
 }
 
 .dark {
-  --background: oklch(0.04 0 0);
+  --background: oklch(0.19 0.045 258);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.1 0 0);
+  --card: oklch(0.24 0.05 258);
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.1 0 0);
+  --popover: oklch(0.24 0.05 258);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.73 0.16 218);
+  --primary: oklch(0.6 0.2 258);
   --primary-foreground: oklch(0.04 0 0);
   --secondary: oklch(0.18 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.18 0 0);
   --muted-foreground: oklch(0.5 0 0);
-  --accent: oklch(0.73 0.16 218);
+  --accent: oklch(0.6 0.2 258);
   --accent-foreground: oklch(0.04 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.73 0.16 218);
+  --ring: oklch(0.6 0.2 258);
   --sidebar: oklch(0.12 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.73 0.16 218);
+  --sidebar-primary: oklch(0.6 0.2 258);
   --sidebar-primary-foreground: oklch(0.04 0 0);
   --sidebar-accent: oklch(0.18 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 12%);
-  --sidebar-ring: oklch(0.73 0.16 218);
+  --sidebar-ring: oklch(0.6 0.2 258);
 }
 
 @layer base {
@@ -142,14 +142,15 @@
     @apply border-border;
   }
   body {
-    @apply bg-black text-white font-sans;
+    @apply text-white font-sans;
+    background-color: var(--surface-dark);
   }
   html {
     @apply font-sans;
   }
 }
 
-/* Soundcore utility classes */
+/* Novexion utility classes */
 @layer utilities {
   .text-brand {
     color: var(--brand);
@@ -185,7 +186,7 @@
     background-color: rgba(255,255,255,0.1);
   }
   .section-dark {
-    background-color: #000;
+    background-color: var(--surface-dark);
     color: #fff;
   }
 }

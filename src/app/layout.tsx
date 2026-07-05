@@ -10,9 +10,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Liberty 5 Pro Series ANC Earbuds Powered by Anker Thus™ AI Chip - soundcore US",
+  title: "Novexion Q16-H3 — Auriculares Traductor con IA en Tiempo Real | +140 Idiomas",
   description:
-    "The World's Clearest Earbuds for Calls. Powered by ANKER Thus™ AI Chip. Certified by Guinness World Records.",
+    "Entendé y hacete entender al instante. Auriculares traductor con IA, modo cara a cara y modo altavoz, pantalla LCD en el estuche. Garantía 6 meses. Compra protegida.",
 };
 
 export default function RootLayout({
@@ -21,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${montserrat.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-black text-white">
+    <html lang="es" className={`${montserrat.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col text-white" style={{ backgroundColor: "#0A1F44" }}>
         {children}
       </body>
     </html>

@@ -3,8 +3,8 @@
 import { cn } from "@/lib/utils";
 
 const tabs = [
-  { label: "Overview", href: "#overview" },
-  { label: "ANKER Thus™", href: "#thus" },
+  { label: "Resumen", href: "#overview" },
+  { label: "Cómo Funciona", href: "#thus" },
   { label: "Specs", href: "#specs" },
 ];
 
@@ -12,12 +12,12 @@ interface ProductSubNavProps {
   activeTab?: string;
 }
 
-export function ProductSubNav({ activeTab = "Overview" }: ProductSubNavProps) {
+export function ProductSubNav({ activeTab = "Resumen" }: ProductSubNavProps) {
   return (
     <div
       className="sticky z-40 flex items-center justify-between px-16"
       style={{
-        backgroundColor: "#1e2024",
+        backgroundColor: "#0d2a5c",
         height: "46px",
         top: "0",
       }}
@@ -32,7 +32,7 @@ export function ProductSubNav({ activeTab = "Overview" }: ProductSubNavProps) {
           whiteSpace: "nowrap",
         }}
       >
-        soundcore Liberty 5 Pro Series
+        Novexion Q16-H3 — Traductor con IA
       </span>
 
       {/* Center: Tab links */}
@@ -47,7 +47,7 @@ export function ProductSubNav({ activeTab = "Overview" }: ProductSubNavProps) {
                 "relative h-full flex items-center text-white transition-colors hover:text-gray-300",
                 "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:content-['']",
                 isActive
-                  ? "after:bg-[#17bbef]"
+                  ? "after:bg-[#1E90FF]"
                   : "after:bg-transparent hover:after:bg-white/30"
               )}
               style={{ fontSize: "14px", fontWeight: 500 }}
@@ -58,9 +58,9 @@ export function ProductSubNav({ activeTab = "Overview" }: ProductSubNavProps) {
         })}
       </nav>
 
-      {/* Right: Shop Now button */}
+      {/* Right: Comprar Ahora button */}
       <a
-        href="#shop"
+        href="#kits"
         className="shrink-0 bg-white text-black font-bold transition-opacity hover:opacity-90"
         style={{
           fontSize: "14px",
@@ -69,7 +69,7 @@ export function ProductSubNav({ activeTab = "Overview" }: ProductSubNavProps) {
           padding: "8px 20px",
         }}
       >
-        Shop Now
+        Comprar Ahora
       </a>
     </div>
   );

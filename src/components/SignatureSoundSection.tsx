@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { PlaceholderImage } from "@/components/ui/placeholder-image";
 
 // ─── Feature pill badge ──────────────────────────────────────────────────────
 
@@ -17,7 +17,7 @@ function FeaturePill({ label, active = false }: FeaturePillProps) {
           ? "text-black border-transparent"
           : "text-white border-white/30 bg-white/5"
       )}
-      style={active ? { backgroundColor: "#17bbef", borderColor: "#17bbef" } : undefined}
+      style={active ? { backgroundColor: "#1E90FF", borderColor: "#1E90FF" } : undefined}
     >
       {label}
     </span>
@@ -28,17 +28,17 @@ function FeaturePill({ label, active = false }: FeaturePillProps) {
 
 export function SignatureSoundSection() {
   return (
-    <section className="bg-black text-white">
+    <section className="text-white" style={{ backgroundColor: "#0A1F44" }}>
       {/* A: Close-up earbud image + heading */}
       <div className="relative w-full min-h-[600px] flex flex-col items-center justify-center overflow-hidden">
         {/* Background earbud image */}
-        <Image
-          src="/images/Group-115.png"
-          alt="Close-up of soundcore Liberty 5 Pro earbud"
+        <PlaceholderImage
+          illustration="/images/novexion/product-main.svg"
+          alt="Primer plano del auricular Novexion"
+          brief="FOTO REAL: primer plano de estudio del auricular Novexion Q16-H3."
           fill
-          className="object-cover object-center"
-          sizes="100vw"
           priority
+          className="rounded-none border-0"
         />
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/80" />
@@ -49,14 +49,14 @@ export function SignatureSoundSection() {
             className="font-extrabold leading-tight"
             style={{ fontSize: "52px" }}
           >
-            <span className="text-white">Your Signature </span>
-            <span className="text-white/40">Sound</span>
+            <span className="text-white">Tu Traducción, </span>
+            <span className="text-white/40">Con Voz Natural</span>
           </h2>
         </div>
       </div>
 
-      {/* B: "Personalized EQ Adjustment" — split layout */}
-      <div className="py-20 px-6 bg-[#080a0f]">
+      {/* B: "Ajustá velocidad y voz desde la app" — split layout */}
+      <div className="py-20 px-6" style={{ backgroundColor: "#071531" }}>
         <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-12 items-center">
           {/* Left: text */}
           <div className="flex-1">
@@ -64,64 +64,63 @@ export function SignatureSoundSection() {
               className="text-white font-bold mb-4 leading-tight"
               style={{ fontSize: "40px" }}
             >
-              Your Signature Sound
+              Elegí Cómo Suena tu Traductor
             </h2>
             <h3
               className="font-bold mb-6"
-              style={{ fontSize: "24px", color: "#17bbef" }}
+              style={{ fontSize: "24px", color: "#1E90FF" }}
             >
-              Personalized EQ Adjustment
+              Ajustá Velocidad y Voz desde la App
             </h3>
             <p
-              className="text-[#767880]"
+              className="text-[#a9b4c9]"
               style={{ fontSize: "16px", lineHeight: 1.7 }}
             >
-              Tailor your audio to your unique hearing with a personalized
-              HearID 2.0 test—and find your perfect sound in seconds.
+              Elegí la voz, el idioma y la velocidad de traducción que mejor
+              te sirva — encontrá tu configuración ideal en segundos, desde la
+              app Novexion.
             </p>
 
-            {/* EQ presets */}
+            {/* Voice/speed presets */}
             <div className="mt-8 flex flex-wrap gap-3">
-              {["Balanced", "Bass Boost", "Clear Treble", "Podcast", "HearID 2.0"].map(
+              {["Voz Femenina", "Voz Masculina", "Velocidad Normal", "Velocidad Rápida", "Modo Claridad"].map(
                 (preset) => (
                   <FeaturePill
                     key={preset}
                     label={preset}
-                    active={preset === "HearID 2.0"}
+                    active={preset === "Modo Claridad"}
                   />
                 )
               )}
             </div>
+            <p className="mt-4 text-[#a9b4c9]" style={{ fontSize: "11px", fontStyle: "italic" }}>
+              PLACEHOLDER: confirmar qué opciones de voz/velocidad ofrece realmente la app antes de publicar.
+            </p>
           </div>
 
-          {/* Right: app screenshot / EQ interface */}
+          {/* Right: app screenshot */}
           <div className="flex-1 relative min-h-[480px] w-full flex items-center justify-center">
-            <div className="relative w-full min-h-[480px]">
-              <Image
-                src="/images/Group-105.png"
-                alt="soundcore app showing personalized EQ and HearID 2.0 interface"
-                fill
-                className="object-contain"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
+            <PlaceholderImage
+              illustration="/images/novexion/smart-case.svg"
+              alt="App Novexion mostrando ajustes de voz e idioma"
+              brief="CAPTURA REAL de la app Novexion mostrando la pantalla de configuración de voz/idioma/velocidad."
+              fill
+            />
           </div>
         </div>
       </div>
 
-      {/* C: "Enhance What You Hear" — split layout (image left, text right) */}
-      <div className="py-20 px-6 bg-black">
+      {/* C: "Escuchá cada palabra como corresponde" — split layout (image left, text right) */}
+      <div className="py-20 px-6" style={{ backgroundColor: "#0A1F44" }}>
         <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-12 items-center">
           {/* Left: image */}
           <div className="flex-1 relative min-h-[440px] w-full rounded-2xl overflow-hidden">
-            <Image
-              src="/images/Group-111.png"
-              alt="AI audio enhancement waveform visualization"
+            <PlaceholderImage
+              illustration="/images/novexion/feature-realtime.svg"
+              alt="IA ajustando la traducción en tiempo real según el ambiente"
+              brief="Gráfico/foto real ilustrando el ajuste en tiempo real de la traducción."
               fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/30" />
           </div>
 
           {/* Right: text */}
@@ -130,22 +129,22 @@ export function SignatureSoundSection() {
               className="text-white font-bold mb-5 leading-tight"
               style={{ fontSize: "40px" }}
             >
-              Enhance What You Hear
+              Escuchá Cada Palabra Como Corresponde
             </h2>
             <p
-              className="text-[#767880] mb-8"
+              className="text-[#a9b4c9] mb-8"
               style={{ fontSize: "16px", lineHeight: 1.7 }}
             >
-              AI-powered audio processing adapts in real time to your
-              environment—so every note, every voice, and every detail sounds
-              exactly as it should. Experience music the way the artist intended.
+              La IA ajusta la traducción en tiempo real según el ambiente —
+              para que cada palabra se entienda clara, sin importar dónde
+              estés.
             </p>
 
             {/* Feature pills / tags */}
             <div className="flex flex-wrap gap-3">
-              <FeaturePill label="AI Audio Enhancement" active />
-              <FeaturePill label="Spatial Audio" />
-              <FeaturePill label="Adaptive EQ" />
+              <FeaturePill label="IA en Tiempo Real" active />
+              <FeaturePill label="Traducción Bidireccional" />
+              <FeaturePill label="Ajuste Automático" />
             </div>
           </div>
         </div>

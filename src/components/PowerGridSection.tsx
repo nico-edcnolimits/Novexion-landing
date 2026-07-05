@@ -1,11 +1,12 @@
-import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { PlaceholderImage } from "@/components/ui/placeholder-image";
 
 interface FeatureCardProps {
   title: string;
   subtitle: string;
   imageSrc?: string;
   imageAlt?: string;
+  imageBrief?: string;
   className?: string;
 }
 
@@ -14,6 +15,7 @@ function FeatureCard({
   subtitle,
   imageSrc,
   imageAlt,
+  imageBrief,
   className,
 }: FeatureCardProps) {
   return (
@@ -26,12 +28,12 @@ function FeatureCard({
     >
       {imageSrc && (
         <div className="relative w-full" style={{ height: "280px" }}>
-          <Image
-            src={imageSrc}
+          <PlaceholderImage
+            illustration={imageSrc}
             alt={imageAlt ?? title}
+            brief={imageBrief ?? "Reemplazar por foto/video real del producto"}
             fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 33vw"
+            className="rounded-none border-0"
           />
         </div>
       )}
@@ -44,7 +46,7 @@ function FeatureCard({
         </p>
         <p
           style={{
-            color: "#767880",
+            color: "#a9b4c9",
             fontSize: "14px",
             fontFamily: "var(--font-montserrat)",
           }}
@@ -68,12 +70,12 @@ function CenterChipCard() {
       }}
     >
       <div className="relative w-full mb-6" style={{ height: "320px" }}>
-        <Image
-          src="/images/02-KSP.png"
-          alt="ANKER Thus AI Chip"
+        <PlaceholderImage
+          illustration="/images/novexion/product-chip.svg"
+          alt="Motor de traducción IA de Novexion"
+          brief="Ilustración/render real del motor de traducción o del chip, si el proveedor la provee."
           fill
-          className="object-contain"
-          sizes="(max-width: 768px) 100vw, 40vw"
+          className="rounded-none border-0"
         />
       </div>
       <p
@@ -85,8 +87,8 @@ function CenterChipCard() {
           lineHeight: "1.4",
         }}
       >
-        Powered by the World&apos;s First Neural-Net Compute-in-Memory AI Audio
-        Chip
+        Motor de Traducción IA en Tiempo Real: procesa tu voz y la traduce en
+        milisegundos, directo en el auricular
       </p>
     </div>
   );
@@ -97,7 +99,7 @@ export function PowerGridSection() {
     <section
       className="w-full"
       style={{
-        background: "#000000",
+        background: "#0A1F44",
         padding: "80px 64px",
       }}
     >
@@ -111,16 +113,16 @@ export function PowerGridSection() {
             fontWeight: 800,
           }}
         >
-          150× Power <sup style={{ fontSize: "24px", verticalAlign: "super" }}>²</sup>
+          Un Motor de Traducción Hecho para Conversar
         </h2>
         <p
           style={{
-            color: "#767880",
+            color: "#a9b4c9",
             fontSize: "18px",
             fontFamily: "var(--font-montserrat)",
           }}
         >
-          On-Device Audio AI—Four Features You Never Thought Possible
+          IA en el auricular — cuatro funciones que cambian cómo te comunicás
         </p>
       </div>
 
@@ -135,16 +137,18 @@ export function PowerGridSection() {
         {/* Left column — 2 stacked cards */}
         <div className="flex flex-col gap-4">
           <FeatureCard
-            title="Whisper-Clear Calls"
-            subtitle="Crystal-Clear Calls, Anywhere"
-            imageSrc="/images/20260522-002816.png"
-            imageAlt="Woman in office wearing earbuds"
+            title="Traducción Instantánea"
+            subtitle="Hablás, y la otra persona te entiende al instante, en +140 idiomas"
+            imageSrc="/images/novexion/feature-realtime.svg"
+            imageAlt="Traducción instantánea"
+            imageBrief="Foto/video real mostrando la traducción apareciendo casi sin demora."
           />
           <FeatureCard
-            title="Instant Pure Silence"
-            subtitle="Industry-Leading Noise Cancellation"
-            imageSrc="/images/02-KSP_28cd788b-c180-4fb3-9395-b325d97321ce.png"
-            imageAlt="Blue earbuds in case"
+            title="Modo Cara a Cara y Altavoz"
+            subtitle="Elegí cómo traducir: charla uno a uno o varias personas escuchando"
+            imageSrc="/images/novexion/feature-facetoface.svg"
+            imageAlt="Modo cara a cara"
+            imageBrief="Foto real de dos personas conversando con Novexion en modo cara a cara."
           />
         </div>
 
@@ -154,14 +158,18 @@ export function PowerGridSection() {
         {/* Right column — 2 stacked cards */}
         <div className="flex flex-col gap-4">
           <FeatureCard
-            title="Your Signature Sound"
-            subtitle="Personalized Sound Experience"
-            imageSrc="/images/02-KSP_3b712b6a-cb42-447a-84ea-5a194e5eda6b.png"
-            imageAlt="Titanium Gold earbuds case"
+            title="Diseño Open-Ear"
+            subtitle="Cómodo todo el día, sin taparte el oído del todo"
+            imageSrc="/images/novexion/feature-openear.svg"
+            imageAlt="Diseño open-ear"
+            imageBrief="Foto real del auricular puesto, mostrando el diseño open-ear."
           />
           <FeatureCard
-            title="Lag-Free Voice Control"
-            subtitle="Instant Hands-Free Voice Control"
+            title="Bluetooth 5.4"
+            subtitle="Conexión rápida y estable con tu celular"
+            imageSrc="/images/novexion/feature-bluetooth.svg"
+            imageAlt="Bluetooth 5.4"
+            imageBrief="Foto/gráfico real mostrando la conexión Bluetooth con el celular."
           />
         </div>
       </div>

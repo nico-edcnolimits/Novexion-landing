@@ -1,6 +1,6 @@
-import Image from "next/image";
+import { PlaceholderImage } from "@/components/ui/placeholder-image";
 
-// ─── Voice command pill ──────────────────────────────────────────────────────
+// ─── Command pill ────────────────────────────────────────────────────────────
 
 function CommandPill({ label }: { label: string }) {
   return (
@@ -13,65 +13,65 @@ function CommandPill({ label }: { label: string }) {
 // ─── Main export ─────────────────────────────────────────────────────────────
 
 export function VoiceControlSection() {
-  const voiceCommands = [
-    "Play/Pause",
-    "Skip Track",
-    "Answer Call",
-    "Volume Up/Down",
-    "Check Battery",
-    "Enable ANC",
-    "Enable Transparency",
+  const tapCommands = [
+    "Iniciar Traducción",
+    "Cambiar Idioma",
+    "Modo Altavoz",
+    "Subir/Bajar Volumen",
+    "Ver Batería",
+    "Repetir Traducción",
   ];
 
   return (
-    <section className="bg-black text-white">
-      {/* A: "Lag-Free Voice Control" — full-width hero */}
-      <div className="py-24 px-6 text-center bg-gradient-to-b from-[#080a0f] to-black">
+    <section className="text-white" style={{ backgroundColor: "#0A1F44" }}>
+      {/* A: "Control Táctil, Sin Mirar el Celular" — full-width hero */}
+      <div className="py-24 px-6 text-center" style={{ background: "linear-gradient(to bottom, #071531, #0A1F44)" }}>
         <h2
           className="text-white font-extrabold mb-4 leading-tight"
           style={{ fontSize: "48px" }}
         >
-          Lag-Free Voice Control
+          Control Táctil, Sin Mirar el Celular
         </h2>
         <p
-          className="text-[#767880] text-center max-w-[600px] mx-auto"
+          className="text-[#a9b4c9] text-center max-w-[600px] mx-auto"
           style={{ fontSize: "20px", lineHeight: 1.6 }}
         >
-          Instant Hands-Free Voice Control
+          Manos libres, aunque estés manejando o atendiendo un cliente
         </p>
       </div>
 
-      {/* B: "No Wake Words. Just Action." — split layout */}
-      <div className="py-0 bg-black">
+      {/* B: "Un Toque, Sin Vueltas" — split layout */}
+      <div className="py-0">
         <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row min-h-[600px]">
           {/* Left: large image */}
           <div className="flex-1 relative min-h-[400px] lg:min-h-[600px] rounded-none overflow-hidden">
-            <Image
-              src="/images/5_1_10__public.jpg"
-              alt="Man at gym holding ball, wearing soundcore Liberty 5 Pro earbuds"
+            <PlaceholderImage
+              illustration="/images/novexion/hands-free.svg"
+              alt="Chofer tocando el auricular Novexion para activar la traducción, sin usar el celular"
+              brief="FOTO REAL: chofer o recepcionista tocando el auricular para activar/cambiar el modo, manos libres."
               fill
-              className="object-cover object-center"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="rounded-none border-0"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/50" />
           </div>
 
-          {/* Right: text + stat comparison card */}
-          <div className="flex-1 flex flex-col justify-center px-10 py-16 bg-black">
+          {/* Right: text + comparison card */}
+          <div className="flex-1 flex flex-col justify-center px-10 py-16" style={{ backgroundColor: "#0A1F44" }}>
             <h2
               className="text-white font-extrabold mb-4 leading-tight"
               style={{ fontSize: "40px" }}
             >
-              No Wake Words. Just Action.
+              Un Toque, Sin Vueltas
             </h2>
             <p
-              className="text-[#767880] mb-8"
+              className="text-[#a9b4c9] mb-8"
               style={{ fontSize: "16px", lineHeight: 1.7 }}
             >
-              Fully on-device voice control. No waiting: Speak, execute, done.
+              Controles táctiles directo en el auricular. No hace falta sacar
+              el celular ni abrir ninguna app para activar la traducción.
             </p>
 
-            {/* Voice Command Response Time comparison card */}
+            {/* Comparison card */}
             <div
               className="rounded-xl p-5 border"
               style={{
@@ -81,44 +81,43 @@ export function VoiceControlSection() {
               }}
             >
               <p className="text-white text-sm font-semibold mb-5 text-center">
-                Voice Command Response Time
-                <sup className="text-xs">6</sup>
+                Para Activar la Traducción
               </p>
 
               <div className="flex items-center justify-around gap-6">
-                {/* Liberty 5 Pro stat */}
+                {/* Novexion */}
                 <div className="flex flex-col items-center gap-2">
                   <div
-                    className="w-20 h-20 rounded-full flex items-center justify-center border-2 font-extrabold"
+                    className="w-20 h-20 rounded-full flex items-center justify-center border-2 font-extrabold text-center px-2"
                     style={{
-                      borderColor: "#17bbef",
-                      color: "#17bbef",
-                      fontSize: "22px",
+                      borderColor: "#1E90FF",
+                      color: "#1E90FF",
+                      fontSize: "14px",
                     }}
                   >
-                    0.91s
+                    1 Toque
                   </div>
                   <p className="text-white text-xs font-semibold text-center">
-                    Liberty 5 Pro Series
+                    Novexion
                   </p>
                 </div>
 
                 {/* VS divider */}
-                <span className="text-[#767880] text-sm font-bold">vs</span>
+                <span className="text-[#a9b4c9] text-sm font-bold">vs</span>
 
-                {/* Other stat */}
+                {/* Other */}
                 <div className="flex flex-col items-center gap-2">
                   <div
-                    className="w-20 h-20 rounded-full flex items-center justify-center border-2 border-dashed font-extrabold text-white"
+                    className="w-20 h-20 rounded-full flex items-center justify-center border-2 border-dashed font-extrabold text-white text-center px-2"
                     style={{
                       borderColor: "rgba(255,255,255,0.30)",
-                      fontSize: "22px",
+                      fontSize: "12px",
                     }}
                   >
-                    2.78s
+                    Sacar el Celular + Abrir App
                   </div>
-                  <p className="text-[#767880] text-xs font-semibold text-center">
-                    Other
+                  <p className="text-[#a9b4c9] text-xs font-semibold text-center">
+                    Traductor de Celular
                   </p>
                 </div>
               </div>
@@ -127,21 +126,24 @@ export function VoiceControlSection() {
         </div>
       </div>
 
-      {/* C: "Speak, and It's Done" — voice command pills grid */}
-      <div className="py-24 px-6 bg-[#080a0f] text-center">
+      {/* C: "Todo Bajo Control" — tap command pills grid */}
+      <div className="py-24 px-6 text-center" style={{ backgroundColor: "#071531" }}>
         <h2
           className="text-white font-extrabold mb-12 leading-tight"
           style={{ fontSize: "48px" }}
         >
-          Speak, and It&apos;s Done
+          Todo Bajo Control
         </h2>
 
-        {/* Voice command pills */}
+        {/* Tap command pills */}
         <div className="flex flex-wrap justify-center gap-3 max-w-[800px] mx-auto">
-          {voiceCommands.map((command) => (
+          {tapCommands.map((command) => (
             <CommandPill key={command} label={command} />
           ))}
         </div>
+        <p className="mt-6 text-[#a9b4c9]" style={{ fontSize: "11px", fontStyle: "italic" }}>
+          PLACEHOLDER: confirmar el mapa real de gestos táctiles del Q16-H3 antes de publicar.
+        </p>
       </div>
     </section>
   );

@@ -1,4 +1,12 @@
-import Image from "next/image";
+import { ShieldCheck, Languages, Truck, BadgeCheck } from "lucide-react";
+import { PlaceholderImage } from "@/components/ui/placeholder-image";
+
+const trustBadges = [
+  { icon: Languages, label: "+140 idiomas" },
+  { icon: ShieldCheck, label: "Garantía 6 meses" },
+  { icon: Truck, label: "Envío a todo el país" },
+  { icon: BadgeCheck, label: "Compra Protegida Mercado Libre" },
+];
 
 export function HeroSection() {
   return (
@@ -7,13 +15,13 @@ export function HeroSection() {
       style={{ minHeight: "calc(100vh - 126px)" }}
     >
       {/* Background image */}
-      <Image
-        src="/images/videoframe_0_16.png"
-        alt="soundcore Liberty 5 Pro Series"
+      <PlaceholderImage
+        illustration="/images/novexion/hero-product.svg"
+        alt="Chofer de traslados usando Novexion mientras conversa con un pasajero extranjero"
+        brief="FOTO REAL: Diego, chofer de traslados, usando Novexion en el auto mientras conversa con un pasajero extranjero. Horizontal 1920x1080, buena luz, se le tiene que ver el auricular puesto."
         fill
-        className="object-cover object-center"
         priority
-        quality={90}
+        className="rounded-none border-0"
       />
 
       {/* Dark overlay for text legibility */}
@@ -29,7 +37,7 @@ export function HeroSection() {
           className="text-white"
           style={{ fontSize: "16px", fontWeight: 500, opacity: 0.9 }}
         >
-          Liberty 5 Pro / Liberty 5 Pro Max
+          NOVEXION · Traductor con IA en tiempo real
         </p>
 
         {/* H1 */}
@@ -42,9 +50,9 @@ export function HeroSection() {
             letterSpacing: "-0.03em",
           }}
         >
-          The World&apos;s Clearest
+          Cada Cliente Que No
           <br />
-          Earbuds for Calls
+          Entendés Es Una Venta Que Se Va
         </h1>
 
         {/* Sub-headline */}
@@ -52,27 +60,27 @@ export function HeroSection() {
           className="text-white"
           style={{ fontSize: "16px", fontWeight: 500 }}
         >
-          Powered by ANKER Thus™ AI Chip¹
+          No necesitás hablar perfecto. Necesitás entender y responder — al instante, en +140 idiomas.
         </p>
 
         {/* CTA buttons */}
         <div className="flex items-center gap-3">
           <a
-            href="#liberty-5-pro-max"
+            href="#kits"
             className="inline-flex items-center justify-center text-white font-bold transition-opacity hover:opacity-90 whitespace-nowrap"
             style={{
-              backgroundColor: "rgba(255,255,255,0.15)",
-              border: "1.5px solid white",
+              backgroundColor: "#1E90FF",
+              border: "1.5px solid #1E90FF",
               borderRadius: "24px",
               padding: "12px 24px",
               fontSize: "16px",
               fontWeight: 700,
             }}
           >
-            Liberty 5 Pro Max
+            Comprar Ahora
           </a>
           <a
-            href="#liberty-5-pro"
+            href="#thus"
             className="inline-flex items-center justify-center text-white font-bold transition-opacity hover:opacity-90 whitespace-nowrap"
             style={{
               backgroundColor: "transparent",
@@ -83,24 +91,22 @@ export function HeroSection() {
               fontWeight: 700,
             }}
           >
-            Liberty 5 Pro
+            Ver Cómo Funciona
           </a>
         </div>
       </div>
 
-      {/* Awards row — bottom of hero */}
+      {/* Trust badges row — bottom of hero */}
       <div
-        className="absolute bottom-0 left-0"
-        style={{ paddingBottom: "32px", paddingLeft: "64px" }}
+        className="absolute bottom-0 left-0 right-0 flex flex-wrap items-center gap-x-8 gap-y-2"
+        style={{ paddingBottom: "32px", paddingLeft: "64px", paddingRight: "64px" }}
       >
-        <Image
-          src="/images/Group_2147238894.png"
-          alt="Award logos: Guinness World Record, SoundGuys Recommended, iF Design Award, Tom's Guide, The Verge, CNET, Red Dot"
-          width={700}
-          height={60}
-          className="h-16 w-auto object-contain"
-          quality={90}
-        />
+        {trustBadges.map(({ icon: Icon, label }) => (
+          <div key={label} className="flex items-center gap-2 text-white">
+            <Icon size={20} />
+            <span style={{ fontSize: "14px", fontWeight: 600 }}>{label}</span>
+          </div>
+        ))}
       </div>
     </section>
   );

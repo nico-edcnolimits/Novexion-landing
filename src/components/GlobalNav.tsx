@@ -1,57 +1,44 @@
 "use client";
 
-import { Search, ShoppingCart, User, Monitor } from "lucide-react";
+import { Search, ShoppingCart } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const brandLinks = [
-  { label: "ANKER", href: "#" },
-  { label: "ANKER SOLIX", href: "#" },
-  { label: "eufy", href: "#" },
-  { label: "eufy Make", href: "#" },
-  { label: "soundcore", href: "#" },
+const trustBullets = [
+  "Envío a todo el país",
+  "Cuotas sin interés con Mercado Pago",
+  "Garantía 6 meses",
 ];
 
 const navLinks = [
-  { label: "Headphones", href: "#" },
-  { label: "Earbuds", href: "#" },
-  { label: "Speakers", href: "#" },
-  { label: "Works", href: "#" },
-  { label: "Projectors", href: "#" },
-  { label: "Independence Day Sale", href: "#" },
-];
-
-const rightLinks = [
-  { label: "New Release", href: "#" },
-  { label: "Deals", href: "#" },
-  { label: "Explore & Support", href: "#" },
+  { label: "Inicio", href: "#" },
+  { label: "Cómo Funciona", href: "#thus" },
+  { label: "Testimonios", href: "#testimonios" },
+  { label: "Kits y Precios", href: "#kits" },
+  { label: "Preguntas Frecuentes", href: "#faq" },
 ];
 
 export function GlobalNav() {
   return (
     <header className="sticky top-0 z-50">
-      {/* Top brand switcher bar */}
+      {/* Top trust bar */}
       <div
         className="h-8 flex items-center justify-between px-16"
-        style={{ backgroundColor: "#000" }}
+        style={{ backgroundColor: "#0A1F44" }}
       >
         <nav className="flex items-center gap-4">
-          {brandLinks.map((link, index) => (
-            <span key={link.label} className="flex items-center gap-4">
-              <a
-                href={link.href}
-                className="text-white hover:text-gray-300 transition-colors"
-                style={{ fontSize: "12px" }}
-              >
-                {link.label}
-              </a>
-              {index < brandLinks.length - 1 && (
-                <span className="text-gray-500 text-xs">|</span>
+          {trustBullets.map((bullet, index) => (
+            <span key={bullet} className="flex items-center gap-4">
+              <span className="text-white" style={{ fontSize: "12px" }}>
+                {bullet}
+              </span>
+              {index < trustBullets.length - 1 && (
+                <span className="text-white/30 text-xs">|</span>
               )}
             </span>
           ))}
         </nav>
         <span className="text-white" style={{ fontSize: "12px" }}>
-          ANKER Innovations
+          Compra Protegida Mercado Libre
         </span>
       </div>
 
@@ -65,17 +52,17 @@ export function GlobalNav() {
         <div className="flex items-center gap-3 shrink-0">
           <a href="#" className="flex items-center gap-3">
             <span
-              className="text-black font-black tracking-tight"
-              style={{ fontSize: "22px", letterSpacing: "-0.03em" }}
+              className="font-black tracking-tight"
+              style={{ fontSize: "22px", letterSpacing: "-0.03em", color: "#0A1F44" }}
             >
-              soundcore
+              NOVEX<span style={{ color: "#1E90FF" }}>I</span>ON
             </span>
             <span className="text-gray-300 text-lg">|</span>
             <span
               className="text-gray-500 font-medium"
               style={{ fontSize: "13px" }}
             >
-              Hear It, Feel It
+              Traductor con IA
             </span>
           </a>
         </div>
@@ -95,44 +82,35 @@ export function GlobalNav() {
           ))}
         </ul>
 
-        {/* Right: Links + Icons */}
+        {/* Right: Icons + CTA */}
         <div className="flex items-center gap-4 shrink-0">
-          {rightLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="hidden xl:block text-black hover:text-gray-600 transition-colors font-medium whitespace-nowrap"
-              style={{ fontSize: "14px" }}
-            >
-              {link.label}
-            </a>
-          ))}
-          <div className="flex items-center gap-3 ml-2">
+          <div className="flex items-center gap-3">
             <button
               className="text-black hover:text-gray-600 transition-colors"
-              aria-label="Search"
+              aria-label="Buscar"
             >
               <Search size={20} />
             </button>
             <button
               className="text-black hover:text-gray-600 transition-colors"
-              aria-label="Cart"
+              aria-label="Carrito"
             >
               <ShoppingCart size={20} />
             </button>
-            <button
-              className="text-black hover:text-gray-600 transition-colors"
-              aria-label="Account"
-            >
-              <User size={20} />
-            </button>
-            <button
-              className="text-black hover:text-gray-600 transition-colors"
-              aria-label="Display"
-            >
-              <Monitor size={20} />
-            </button>
           </div>
+          <a
+            href="#kits"
+            className="inline-flex items-center justify-center text-white font-bold transition-opacity hover:opacity-90 whitespace-nowrap"
+            style={{
+              backgroundColor: "#1E90FF",
+              borderRadius: "24px",
+              padding: "10px 20px",
+              fontSize: "14px",
+              fontWeight: 700,
+            }}
+          >
+            Comprar Ahora
+          </a>
         </div>
       </nav>
     </header>

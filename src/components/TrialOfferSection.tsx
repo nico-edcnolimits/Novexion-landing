@@ -1,4 +1,4 @@
-import { Package, ShieldCheck, Gift } from "lucide-react";
+import { ShieldCheck, BadgeCheck, CreditCard } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface OfferCard {
@@ -9,19 +9,19 @@ interface OfferCard {
 
 const offerCards: OfferCard[] = [
   {
-    title: "Free\nNext-Day Delivery",
-    value: "Worth $9.99",
-    icon: <Package size={32} className="text-white" />,
-  },
-  {
-    title: "Free\nsoundcore Care",
-    value: "Worth $9.99",
+    title: "Garantía\nOficial Novexion",
+    value: "6 meses contra defectos de fábrica",
     icon: <ShieldCheck size={32} className="text-white" />,
   },
   {
-    title: "Free\nWorry-Free Purchase",
-    value: "Worth Up to $4.99",
-    icon: <Gift size={32} className="text-white" />,
+    title: "Compra\nProtegida",
+    value: "Mercado Libre te devuelve el dinero si algo sale mal",
+    icon: <BadgeCheck size={32} className="text-white" />,
+  },
+  {
+    title: "Cuotas\nSin Interés",
+    value: "Pagalo con Mercado Pago, sin recargos",
+    icon: <CreditCard size={32} className="text-white" />,
   },
 ];
 
@@ -29,7 +29,7 @@ export function TrialOfferSection() {
   return (
     <section
       className="w-full flex flex-col items-center"
-      style={{ backgroundColor: "#000000", padding: "80px 64px" }}
+      style={{ backgroundColor: "#0A1F44", padding: "80px 64px" }}
     >
       {/* Heading */}
       <h2
@@ -41,49 +41,42 @@ export function TrialOfferSection() {
           maxWidth: "700px",
         }}
       >
-        $0 Trial Spots Fully Booked!
+        Comprá Tranquilo:
         <br />
-        Enjoy a 30-Day Risk-Free Guarantee
+        Así Te Cubrimos
       </h2>
 
       {/* Sub text */}
       <div className="flex flex-col items-center gap-3 mt-6">
         <p
           className="text-center"
-          style={{ color: "#767880", fontSize: "16px" }}
+          style={{ color: "#a9b4c9", fontSize: "16px", maxWidth: "560px" }}
         >
-          All Free Trial Spots Are Taken
-        </p>
-        <p
-          className="text-center"
-          style={{ color: "#767880", fontSize: "14px", maxWidth: "500px" }}
-        >
-          This promotion reached its 5,000-unit limit on June 11. The offer is
-          now closed. Your remaining benefits continue as listed below.
+          Compra 100% protegida por Mercado Libre, garantía oficial de Novexion y soporte en español por WhatsApp.
         </p>
       </div>
 
-      {/* Large "30 Days" visual */}
+      {/* Large "6 Meses" visual */}
       <div className="relative flex flex-col items-center justify-center mt-12 mb-10">
         {/* Glowing radial gradient behind the number */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(255,255,255,0.18) 0%, transparent 70%)",
+              "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(30,144,255,0.25) 0%, transparent 70%)",
           }}
         />
         <span
           className="text-white leading-none font-black relative z-10"
           style={{ fontSize: "200px", fontWeight: 900, lineHeight: 1 }}
         >
-          30
+          6
         </span>
         <span
           className="text-white font-black relative z-10 -mt-4"
           style={{ fontSize: "60px", fontWeight: 900, lineHeight: 1 }}
         >
-          Days
+          Meses de Garantía
         </span>
       </div>
 
@@ -92,31 +85,26 @@ export function TrialOfferSection() {
         className="text-white text-center"
         style={{ fontSize: "28px", fontWeight: 700 }}
       >
-        Your 3 Exclusive Offers Continue
+        Tus 3 Respaldos al Comprar Novexion
       </h3>
 
       {/* How it works / Rules links */}
       <div className="flex items-center gap-6 mt-3">
         <a
-          href="#how-it-works"
+          href="#"
           className="font-medium hover:underline transition-colors"
-          style={{ color: "#17bbef", fontSize: "14px" }}
+          style={{ color: "#1E90FF", fontSize: "14px" }}
         >
-          How it works &gt;
+          Cómo funciona la garantía &gt;
         </a>
         <a
-          href="#rules"
+          href="#"
           className="font-medium hover:underline transition-colors"
-          style={{ color: "#17bbef", fontSize: "14px" }}
+          style={{ color: "#1E90FF", fontSize: "14px" }}
         >
-          Rules &gt;
+          Ver términos &gt;
         </a>
       </div>
-
-      {/* Valid date */}
-      <p className="mt-2" style={{ color: "#767880", fontSize: "14px" }}>
-        Offer Valid: May 21st - June 30th, 2026
-      </p>
 
       {/* 3-col offer cards */}
       <div
@@ -142,7 +130,7 @@ export function TrialOfferSection() {
                 {card.title}
               </span>
               <span
-                style={{ color: "#767880", fontSize: "13px" }}
+                style={{ color: "#a9b4c9", fontSize: "13px" }}
               >
                 {card.value}
               </span>

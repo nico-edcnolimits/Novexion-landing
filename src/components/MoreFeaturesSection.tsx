@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { PlaceholderImage } from "@/components/ui/placeholder-image";
 
 interface FeatureCard {
   id: string;
@@ -7,52 +7,58 @@ interface FeatureCard {
   subtitle?: string;
   lines?: string[];
   image?: string;
+  imageAlt?: string;
+  imageBrief?: string;
   hasBatteryIndicators?: boolean;
 }
 
 const featureCards: FeatureCard[] = [
   {
-    id: "dolby",
-    title: "Optimized for Dolby Atmos",
-    subtitle: "Your personal cinema, anywhere.",
-    image: "/images/d0ac6567f3b38273f997dcfdf5da7ef1.png",
+    id: "languages",
+    title: "+140 Idiomas",
+    subtitle: "Traducí con turistas de casi cualquier país.",
+    image: "/images/novexion/feature-realtime.svg",
+    imageAlt: "Traducción en más de 140 idiomas",
+    imageBrief: "Foto/gráfico real listando o mostrando la cobertura de idiomas.",
   },
   {
     id: "battery",
-    title: "Battery Life",
+    title: "Batería de Larga Duración",
     lines: [
-      "ANC On: 6.5 Hrs / 28 Hrs",
-      "4 Hrs / 17 Hrs with all smart features on¹⁶",
-      "Fast Charging: 5 Min = 4 Hrs",
+      "Hasta 8-10 hs de uso continuo",
+      "El estuche suma carga extra durante el día",
+      "PLACEHOLDER: confirmar horas y ciclos exactos",
     ],
-    image: "/images/02-KSP_28cd788b-c180-4fb3-9395-b325d97321ce.png",
+    image: "/images/novexion/product-main.svg",
+    imageAlt: "Batería de Novexion",
+    imageBrief: "Foto real del producto + estuche mostrando indicador de batería.",
     hasBatteryIndicators: true,
   },
   {
-    id: "wireless",
-    title: "Wireless Charging",
-    subtitle: "Place and power up. That’s it.",
+    id: "bluetooth",
+    title: "Bluetooth 5.4",
+    subtitle: "Conexión rápida y estable con tu celular.",
   },
   {
-    id: "multipoint",
-    title: "Multipoint Connection",
-    subtitle: "Stay connected across two devices simultaneously.",
+    id: "modes",
+    title: "Modo Cara a Cara y Modo Altavoz",
+    subtitle: "Elegí cómo traducir según la situación.",
   },
 ];
 
 export function MoreFeaturesSection() {
   return (
-    <section className={cn("bg-black text-white py-20 px-4")}>
+    <section className={cn("text-white py-20 px-4")} style={{ backgroundColor: "#0A1F44" }}>
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <h2
           className="text-white text-center"
           style={{ fontSize: "40px", fontWeight: 800 }}
         >
-          More Shared Features
+          Más Funciones Novexion
         </h2>
-        <p className="text-[#767880] text-sm text-center mt-3">
-          Both models include the following features. Liberty 5 Pro shown for reference.
+        <p className="text-[#a9b4c9] text-sm text-center mt-3">
+          Todo lo que necesitás saber sobre tu Novexion Q16-H3.
         </p>
 
         {/* Card row */}
@@ -66,18 +72,18 @@ export function MoreFeaturesSection() {
               )}
             >
               {card.image && (
-                <Image
-                  src={card.image}
-                  alt={card.title}
+                <PlaceholderImage
+                  illustration={card.image}
+                  alt={card.imageAlt ?? card.title}
+                  brief={card.imageBrief ?? "Reemplazar por foto real del producto"}
                   fill
-                  className="object-cover"
-                  sizes="340px"
+                  className="rounded-none border-0"
                 />
               )}
 
               {/* Gradient overlay for cards with images */}
               {card.image && (
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
               )}
 
               {/* Content overlay */}

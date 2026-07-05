@@ -1,45 +1,27 @@
-import Image from "next/image";
-import { cn } from "@/lib/utils";
+import { Check } from "lucide-react";
+import { PlaceholderImage } from "@/components/ui/placeholder-image";
 
-interface ColorSwatch {
-  name: string;
-  color: string;
-  selected?: boolean;
-}
-
-interface ProductCardProps {
-  productName: string;
+interface KitCardProps {
+  kitName: string;
+  tagline: string;
   imageSrc: string;
   imageAlt: string;
-  selectedColor: string;
-  swatches: ColorSwatch[];
+  imageBrief: string;
+  includes: string[];
+  ctaLabel: string;
+  note?: string;
 }
 
-function ColorDot({ swatch }: { swatch: ColorSwatch }) {
-  return (
-    <div
-      title={swatch.name}
-      className={cn(
-        "rounded-full flex-shrink-0",
-        swatch.selected && "ring-2 ring-white ring-offset-2 ring-offset-black"
-      )}
-      style={{
-        width: "20px",
-        height: "20px",
-        background: swatch.color,
-        cursor: "pointer",
-      }}
-    />
-  );
-}
-
-function ProductCard({
-  productName,
+function KitCard({
+  kitName,
+  tagline,
   imageSrc,
   imageAlt,
-  selectedColor,
-  swatches,
-}: ProductCardProps) {
+  imageBrief,
+  includes,
+  ctaLabel,
+  note,
+}: KitCardProps) {
   return (
     <div
       className="flex flex-col items-center"
@@ -48,37 +30,30 @@ function ProductCard({
       {/* Product image */}
       <div
         className="relative w-full mb-6"
-        style={{ maxWidth: "380px", margin: "0 auto 24px" }}
+        style={{ maxWidth: "380px", aspectRatio: "1 / 1", margin: "0 auto 24px" }}
       >
-        <Image
-          src={imageSrc}
+        <PlaceholderImage
+          illustration={imageSrc}
           alt={imageAlt}
-          width={380}
-          height={380}
-          className="w-full h-auto object-contain"
+          brief={imageBrief}
+          fill
+          className="rounded-xl"
         />
       </div>
 
-      {/* Color label */}
+      {/* Tagline */}
       <p
         style={{
-          color: "#767880",
+          color: "#a9b4c9",
           fontSize: "14px",
           fontFamily: "var(--font-montserrat)",
           marginBottom: "10px",
         }}
       >
-        {selectedColor}
+        {tagline}
       </p>
 
-      {/* Color swatches */}
-      <div className="flex items-center gap-3 mb-4">
-        {swatches.map((swatch) => (
-          <ColorDot key={swatch.name} swatch={swatch} />
-        ))}
-      </div>
-
-      {/* Product name */}
+      {/* Kit name */}
       <h3
         className="text-white"
         style={{
@@ -88,16 +63,31 @@ function ProductCard({
           marginBottom: "16px",
         }}
       >
-        {productName}
+        {kitName}
       </h3>
+
+      {/* Includes list */}
+      <ul className="flex flex-col gap-2 mb-6 text-left" style={{ maxWidth: "300px" }}>
+        {includes.map((item) => (
+          <li key={item} className="flex items-start gap-2">
+            <Check size={16} style={{ color: "#1E90FF", marginTop: "3px", flexShrink: 0 }} />
+            <span style={{ color: "#e5eaf3", fontSize: "14px" }}>{item}</span>
+          </li>
+        ))}
+      </ul>
+      {note && (
+        <p style={{ color: "#a9b4c9", fontSize: "11px", fontStyle: "italic", marginBottom: "16px", maxWidth: "300px" }}>
+          {note}
+        </p>
+      )}
 
       {/* CTA */}
       <button
         type="button"
         className="cursor-pointer transition-opacity hover:opacity-90"
         style={{
-          background: "#ffffff",
-          color: "#000000",
+          background: "#1E90FF",
+          color: "#ffffff",
           borderRadius: "24px",
           padding: "12px 28px",
           fontSize: "14px",
@@ -106,30 +96,19 @@ function ProductCard({
           border: "none",
         }}
       >
-        Shop Now
+        {ctaLabel}
       </button>
     </div>
   );
 }
 
 export function ProductExplorerSection() {
-  const pro5Swatches: ColorSwatch[] = [
-    { name: "Pearl Blue", color: "#9fc8e8", selected: true },
-    { name: "Rose Pink", color: "#e8b4b8" },
-    { name: "Midnight Black", color: "#1a1a1a" },
-    { name: "Gray", color: "#9a9a9a" },
-  ];
-
-  const pro5MaxSwatches: ColorSwatch[] = [
-    { name: "Titanium Gold", color: "#c8a96e", selected: true },
-    { name: "White", color: "#f5f5f5" },
-  ];
-
   return (
     <section
+      id="kits"
       className="w-full"
       style={{
-        background: "#000000",
+        background: "#0A1F44",
         padding: "80px 64px",
       }}
     >
@@ -140,23 +119,35 @@ export function ProductExplorerSection() {
           fontSize: "40px",
           fontFamily: "var(--font-montserrat)",
           fontWeight: 800,
-          marginBottom: "48px",
+          marginBottom: "12px",
         }}
       >
-        Exploring the Liberty 5 Pro Series
+        Elegí Tu Kit Novexion
       </h2>
+      <p
+        className="text-center mx-auto"
+        style={{ color: "#a9b4c9", fontSize: "16px", marginBottom: "48px", maxWidth: "600px" }}
+      >
+        Mismo hardware Q16-H3, distinto armado según lo uses vos o tu negocio
+      </p>
 
-      {/* Product cards */}
+      {/* Kit cards */}
       <div
         className="flex items-start mx-auto"
         style={{ maxWidth: "1200px", gap: "40px" }}
       >
-        <ProductCard
-          productName="Liberty 5 Pro"
-          imageSrc="/images/d0ac6567f3b38273f997dcfdf5da7ef1.png"
-          imageAlt="Liberty 5 Pro Pearl Blue earbuds open case"
-          selectedColor="Pearl Blue"
-          swatches={pro5Swatches}
+        <KitCard
+          kitName="Kit Individual"
+          tagline="Ideal para vos"
+          imageSrc="/images/novexion/product-main.svg"
+          imageAlt="Novexion Q16-H3, kit individual"
+          imageBrief="Foto real del kit individual: 1 auricular, estuche con pantalla LCD y cable, sobre fondo neutro."
+          includes={[
+            "1 auricular traductor Novexion Q16-H3",
+            "Estuche con pantalla LCD",
+            "Cable de carga",
+          ]}
+          ctaLabel="Comprar Kit Individual"
         />
 
         {/* Divider */}
@@ -168,12 +159,20 @@ export function ProductExplorerSection() {
           }}
         />
 
-        <ProductCard
-          productName="Liberty 5 Pro Max"
-          imageSrc="/images/02-KSP_3b712b6a-cb42-447a-84ea-5a194e5eda6b.png"
-          imageAlt="Liberty 5 Pro Max Titanium Gold earbuds case"
-          selectedColor="Titanium Gold"
-          swatches={pro5MaxSwatches}
+        <KitCard
+          kitName="Kit Profesional"
+          tagline="Ideal para choferes, hotelería y comercios"
+          imageSrc="/images/novexion/product-black.svg"
+          imageAlt="Novexion Q16-H3, kit profesional"
+          imageBrief="Foto real del kit profesional armado (2-3 unidades + accesorios), sobre fondo neutro."
+          includes={[
+            "2 auriculares traductores Novexion Q16-H3",
+            "Estuche con pantalla LCD por unidad",
+            "Funda protectora extra",
+            "Garantía extendida",
+          ]}
+          note="PLACEHOLDER: confirmar contenido exacto y precio del Kit Profesional antes de publicar."
+          ctaLabel="Comprar Kit Profesional"
         />
       </div>
     </section>

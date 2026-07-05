@@ -1,19 +1,29 @@
-import Image from "next/image";
+import { Car, Building2, Store, Plane } from "lucide-react";
+
+const audiences = [
+  { icon: Car, label: "Choferes y Traslados" },
+  { icon: Building2, label: "Hotelería y Airbnb" },
+  { icon: Store, label: "Comercios y Gastronomía" },
+  { icon: Plane, label: "Viajeros Frecuentes" },
+];
 
 export function AwardsStrip() {
   return (
     <section
-      className="w-full flex items-center justify-center"
-      style={{ backgroundColor: "#000000", padding: "32px 64px" }}
+      className="w-full flex flex-col items-center gap-6"
+      style={{ backgroundColor: "#0A1F44", padding: "32px 64px" }}
     >
-      <Image
-        src="/images/Group_2147238894.png"
-        alt="Award logos: ANKER Thus 150X, Guinness World Record, SoundGuys Recommended, iF Design Award 2026, Tom's Guide Recommended, The Verge, CNET, Red Dot Winner 2026"
-        width={900}
-        height={64}
-        className="h-16 w-auto object-contain"
-        quality={90}
-      />
+      <p style={{ color: "#a9b4c9", fontSize: "13px", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase" }}>
+        Pensado para quienes hablan con turistas todos los días
+      </p>
+      <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+        {audiences.map(({ icon: Icon, label }) => (
+          <div key={label} className="flex items-center gap-2 text-white">
+            <Icon size={22} style={{ color: "#1E90FF" }} />
+            <span style={{ fontSize: "15px", fontWeight: 600 }}>{label}</span>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

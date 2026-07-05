@@ -1,24 +1,24 @@
-import Image from "next/image";
+import { PlaceholderImage } from "@/components/ui/placeholder-image";
 
 function PartA() {
   return (
     <section
+      id="thus"
       className="relative w-full flex flex-col items-center justify-center overflow-hidden"
-      style={{ minHeight: "60vh", background: "#000000" }}
+      style={{ minHeight: "60vh", background: "#0A1F44" }}
     >
       {/* Background image */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/Webdesign_1441-1920_US_Material_22_v2.jpg"
-          alt="ANKER Thus AI Chip circuit board"
+        <PlaceholderImage
+          illustration="/images/novexion/translation-bg.svg"
+          alt="Motor de traducción IA de Novexion"
+          brief="Fondo real: closeup del auricular Novexion o gráfico del proceso de traducción, tono azul marino."
           fill
-          className="object-cover opacity-60"
-          sizes="100vw"
-          priority
+          className="rounded-none border-0 opacity-60"
         />
         <div
           className="absolute inset-0"
-          style={{ background: "rgba(0,0,0,0.4)" }}
+          style={{ background: "rgba(10,31,68,0.5)" }}
         />
       </div>
 
@@ -30,7 +30,7 @@ function PartA() {
         {/* Eyebrow */}
         <p
           style={{
-            color: "#17bbef",
+            color: "#1E90FF",
             fontSize: "14px",
             fontFamily: "var(--font-montserrat)",
             fontWeight: 600,
@@ -39,7 +39,7 @@ function PartA() {
             marginBottom: "20px",
           }}
         >
-          ANKER Thus™ AI Chip
+          Tecnología Novexion IA
         </p>
 
         {/* Heading */}
@@ -53,13 +53,13 @@ function PartA() {
             marginBottom: "20px",
           }}
         >
-          150× Computing Power
+          Tu Voz, Traducida al Instante
         </h2>
 
         {/* Subheading */}
         <p
           style={{
-            color: "#767880",
+            color: "#a9b4c9",
             fontSize: "18px",
             fontFamily: "var(--font-montserrat)",
             lineHeight: "1.6",
@@ -67,7 +67,7 @@ function PartA() {
             whiteSpace: "pre-line",
           }}
         >
-          {"Powered by the world's first neural-net\ncompute-in-memory AI audio chip"}
+          {"Un motor de traducción por IA que entiende, traduce y responde\nsin que tengas que mirar la pantalla del celular"}
         </p>
 
         {/* CTA */}
@@ -85,8 +85,11 @@ function PartA() {
             fontFamily: "var(--font-montserrat)",
           }}
         >
-          Watch Video
+          Ver Video Demostrativo
         </button>
+        <p style={{ color: "#a9b4c9", fontSize: "11px", marginTop: "12px", fontStyle: "italic" }}>
+          PLACEHOLDER: sumar video real demostrando el producto en uso.
+        </p>
       </div>
     </section>
   );
@@ -96,7 +99,7 @@ function PartB() {
   return (
     <section
       className="w-full"
-      style={{ background: "#000000", padding: "80px 64px" }}
+      style={{ background: "#0A1F44", padding: "80px 64px" }}
     >
       <div
         className="mx-auto grid"
@@ -115,12 +118,12 @@ function PartB() {
         >
           {/* Icon */}
           <div className="relative mb-6" style={{ width: "64px", height: "64px" }}>
-            <Image
-              src="/images/15-kws.png"
-              alt="Compute-in-Memory chip architecture"
+            <PlaceholderImage
+              illustration="/images/novexion/step-listen.svg"
+              alt="Escuchás"
+              brief="Ícono/gráfico real del paso 'escuchar'."
               fill
-              className="object-contain"
-              sizes="64px"
+              className="rounded-lg"
             />
           </div>
 
@@ -133,30 +136,29 @@ function PartB() {
               marginBottom: "4px",
             }}
           >
-            Compute-in-Memory
+            Escuchás
           </h3>
           <p
             style={{
-              color: "#767880",
+              color: "#a9b4c9",
               fontSize: "14px",
               fontFamily: "var(--font-montserrat)",
               fontWeight: 500,
               marginBottom: "16px",
             }}
           >
-            New Architecture
+            Micrófonos de Alta Sensibilidad
           </p>
           <p
             style={{
-              color: "#767880",
+              color: "#a9b4c9",
               fontSize: "14px",
               fontFamily: "var(--font-montserrat)",
               lineHeight: "1.7",
             }}
           >
-            Traditional chips separate the CPU and memory, wasting over 90% of
-            energy on data movement alone. Thus™ fuses them into one—computing
-            happens exactly where data lives.
+            El auricular capta la voz de la otra persona, incluso con ruido de
+            fondo — sin que nadie tenga que gritar ni repetir.
           </p>
         </div>
 
@@ -170,7 +172,7 @@ function PartB() {
         >
           <p
             style={{
-              color: "#17bbef",
+              color: "#1E90FF",
               fontSize: "72px",
               fontFamily: "var(--font-montserrat)",
               fontWeight: 900,
@@ -178,7 +180,7 @@ function PartB() {
               marginBottom: "4px",
             }}
           >
-            150×
+            +140
           </p>
           <p
             className="text-white"
@@ -189,19 +191,18 @@ function PartB() {
               marginBottom: "24px",
             }}
           >
-            Computing Power
+            Idiomas Disponibles
           </p>
           <p
             style={{
-              color: "#767880",
+              color: "#a9b4c9",
               fontSize: "14px",
               fontFamily: "var(--font-montserrat)",
               lineHeight: "1.7",
             }}
           >
-            By eliminating data movement, energy can be focused entirely on
-            computation. The result: up to 150× the AI computing power from a
-            single design shift—making advanced audio AI in earbuds practical.
+            De Europa a Brasil, la IA de traducción cubre los idiomas de la
+            mayoría de los turistas que llegan a Argentina.
           </p>
         </div>
 
@@ -212,12 +213,12 @@ function PartB() {
         >
           {/* Icon */}
           <div className="relative mb-6" style={{ width: "64px", height: "64px" }}>
-            <Image
-              src="/images/5594e728-b5ba-459c-83b3-ab5ac8bfde36_Group_2121239447.png"
-              alt="On-Device Audio AI waveform"
+            <PlaceholderImage
+              illustration="/images/novexion/step-speak.svg"
+              alt="Respondés"
+              brief="Ícono/gráfico real del paso 'responder'."
               fill
-              className="object-contain"
-              sizes="64px"
+              className="rounded-lg"
             />
           </div>
 
@@ -230,52 +231,52 @@ function PartB() {
               marginBottom: "4px",
             }}
           >
-            On-Device Audio AI
+            Respondés
           </h3>
           <p
             style={{
-              color: "#767880",
+              color: "#a9b4c9",
               fontSize: "14px",
               fontFamily: "var(--font-montserrat)",
               fontWeight: 500,
               marginBottom: "16px",
             }}
           >
-            Novel Experiences
+            Traducción Clara y Natural
           </p>
           <p
             style={{
-              color: "#767880",
+              color: "#a9b4c9",
               fontSize: "14px",
               fontFamily: "var(--font-montserrat)",
               lineHeight: "1.7",
             }}
           >
-            Driven by this 150× compute, real-time audio AI runs directly on the
-            earbud—no cloud, no phone, no delay, enabling experiences that were
-            once impossible.
+            La traducción se escucha directo en el oído, casi sin demora — la
+            conversación sigue su ritmo, sin cortes incómodos.
           </p>
         </div>
       </div>
 
       {/* Bottom CTA */}
       <div className="flex justify-center mt-16">
-        <button
-          type="button"
+        <a
+          href="#specs"
           className="cursor-pointer transition-opacity hover:opacity-90"
           style={{
             background: "#ffffff",
-            color: "#000000",
+            color: "#0A1F44",
             border: "none",
             borderRadius: "24px",
             padding: "14px 32px",
             fontSize: "16px",
             fontWeight: 700,
             fontFamily: "var(--font-montserrat)",
+            display: "inline-block",
           }}
         >
-          + Explore the ANKER Thus™ AI Chip
-        </button>
+          + Conocé Cómo Funciona la Traducción IA
+        </a>
       </div>
     </section>
   );

@@ -1,47 +1,26 @@
-// Note: lucide-react v1.x removed brand icons (Instagram/Facebook/Twitter/LinkedIn).
-// We use semantic equivalents: Camera → Instagram, Users → Facebook, X → Twitter/X, Link2 → LinkedIn.
-import { Camera, Users, X, Link2, Globe } from "lucide-react";
+// Note: lucide-react v1.x removed brand icons (Instagram/Facebook/WhatsApp).
+// We use semantic equivalents: Camera → Instagram, Users → Facebook, MessageCircle → WhatsApp.
+import { Camera, Users, MessageCircle, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const companyLinks = ["About Us", "Careers", "Warranty", "Partners"];
-const productLinks = ["Headphones", "Earbuds", "Speakers", "Projectors"];
+const companyLinks = ["Sobre Novexion", "Garantía", "Preguntas Frecuentes"];
+const productLinks = ["Novexion Q16-H3", "Kit Individual", "Kit Profesional"];
 const supportLinks = [
-  "FAQ",
-  "Document & Drivers",
-  "Shipping Policy",
-  "Refund Policy",
-  "Warranty Info",
+  "Preguntas Frecuentes",
+  "Cómo Funciona la Garantía",
+  "Política de Envíos",
+  "Cambios y Devoluciones",
 ];
-const communityLinks = ["Blogs", "soundcoreCredits", "Earn 10% Referral Cash"];
+const communityLinks = ["Reseñas de Clientes", "Comprá en Mercado Libre"];
 
-const paymentMethods = [
-  "Amex",
-  "Apple Pay",
-  "Diners",
-  "Discover",
-  "Google Pay",
-  "MC",
-  "PayPal",
-  "Shop Pay",
-  "Venmo",
-  "Visa",
-];
+const paymentMethods = ["Mercado Pago", "Visa", "Mastercard", "Cuotas"];
 
 const policyLinks = [
-  "About Us",
-  "Shipping policy",
-  "Refund policy",
-  "Privacy Notice",
-  "Terms of service",
-];
-
-const brandNames = [
-  "ANKER Innovations",
-  "ANKER",
-  "ANKER SOLIX",
-  "eufy",
-  "eufy Make",
-  "soundcore",
+  "Preguntas Frecuentes",
+  "Política de Envíos",
+  "Cambios y Devoluciones",
+  "Términos y Condiciones",
+  "Política de Privacidad",
 ];
 
 type SocialEntry = {
@@ -53,28 +32,27 @@ type SocialEntry = {
 const socialIcons: SocialEntry[] = [
   { Icon: Camera, label: "Instagram" },
   { Icon: Users, label: "Facebook" },
-  { Icon: X, label: "Twitter / X" },
-  { Icon: Link2, label: "LinkedIn" },
+  { Icon: MessageCircle, label: "WhatsApp" },
 ];
 
 export function FooterSection() {
   return (
     <footer
-      className={cn("bg-black text-white")}
-      style={{ padding: "60px 64px 40px" }}
+      className={cn("text-white")}
+      style={{ padding: "60px 64px 40px", backgroundColor: "#0A1F44" }}
     >
       <div className="max-w-7xl mx-auto">
         {/* ── 4-column grid ── */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           {/* Column 1: Company / Brand */}
           <div>
-            <p className="text-xl font-extrabold text-white mb-5">soundcore</p>
+            <p className="text-xl font-extrabold text-white mb-5">NOVEXION</p>
             <ul className="space-y-2">
               {companyLinks.map((link) => (
                 <li key={link}>
                   <a
                     href="#"
-                    className="text-sm text-[#767880] hover:text-white transition-colors"
+                    className="text-sm text-[#a9b4c9] hover:text-white transition-colors"
                   >
                     {link}
                   </a>
@@ -85,15 +63,15 @@ export function FooterSection() {
 
           {/* Column 2: Products */}
           <div>
-            <p className="text-xs text-[#767880] uppercase tracking-widest mb-5">
-              Products
+            <p className="text-xs text-[#a9b4c9] uppercase tracking-widest mb-5">
+              Producto
             </p>
             <ul className="space-y-2">
               {productLinks.map((link) => (
                 <li key={link}>
                   <a
-                    href="#"
-                    className="text-sm text-[#767880] hover:text-white transition-colors"
+                    href="#kits"
+                    className="text-sm text-[#a9b4c9] hover:text-white transition-colors"
                   >
                     {link}
                   </a>
@@ -104,15 +82,15 @@ export function FooterSection() {
 
           {/* Column 3: Support */}
           <div>
-            <p className="text-xs text-[#767880] uppercase tracking-widest mb-5">
-              Support
+            <p className="text-xs text-[#a9b4c9] uppercase tracking-widest mb-5">
+              Ayuda
             </p>
             <ul className="space-y-2">
               {supportLinks.map((link) => (
                 <li key={link}>
                   <a
                     href="#"
-                    className="text-sm text-[#767880] hover:text-white transition-colors"
+                    className="text-sm text-[#a9b4c9] hover:text-white transition-colors"
                   >
                     {link}
                   </a>
@@ -121,17 +99,17 @@ export function FooterSection() {
             </ul>
           </div>
 
-          {/* Column 4: Community + App */}
+          {/* Column 4: Community + WhatsApp CTA */}
           <div>
-            <p className="text-xs text-[#767880] uppercase tracking-widest mb-5">
-              Community
+            <p className="text-xs text-[#a9b4c9] uppercase tracking-widest mb-5">
+              Comunidad
             </p>
             <ul className="space-y-2 mb-8">
               {communityLinks.map((link) => (
                 <li key={link}>
                   <a
                     href="#"
-                    className="text-sm text-[#767880] hover:text-white transition-colors"
+                    className="text-sm text-[#a9b4c9] hover:text-white transition-colors"
                   >
                     {link}
                   </a>
@@ -139,21 +117,15 @@ export function FooterSection() {
               ))}
             </ul>
 
-            <p className="text-xs text-[#767880] uppercase tracking-widest mb-3">
-              App
+            <p className="text-xs text-[#a9b4c9] uppercase tracking-widest mb-3">
+              Consultanos
             </p>
             <div className="space-y-2">
               <a
                 href="#"
-                className="block text-xs text-[#767880] border border-white/20 rounded-lg px-3 py-2 hover:text-white hover:border-white/40 transition-colors"
+                className="block text-xs text-[#a9b4c9] border border-white/20 rounded-lg px-3 py-2 hover:text-white hover:border-white/40 transition-colors"
               >
-                Get it on Google Play
-              </a>
-              <a
-                href="#"
-                className="block text-xs text-[#767880] border border-white/20 rounded-lg px-3 py-2 hover:text-white hover:border-white/40 transition-colors"
-              >
-                Download on the App Store
+                Escribinos por WhatsApp
               </a>
             </div>
           </div>
@@ -167,24 +139,25 @@ export function FooterSection() {
                 key={label}
                 href="#"
                 aria-label={label}
-                className="text-[#767880] hover:text-white transition-colors"
+                className="text-[#a9b4c9] hover:text-white transition-colors"
               >
                 <Icon size={20} />
               </a>
             ))}
           </div>
-          <div className="flex items-center gap-2 text-sm text-[#767880] hover:text-white cursor-pointer transition-colors">
+          <div className="flex items-center gap-2 text-sm text-[#a9b4c9] transition-colors">
             <Globe size={16} />
-            <span>United States</span>
+            <span>Envíos a todo el país — Argentina</span>
           </div>
         </div>
 
         {/* ── Bottom bar ── */}
         <div className="pt-6 flex flex-col gap-6">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-6 text-xs text-[#767880]">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-6 text-xs text-[#a9b4c9]">
             {/* Copyright */}
             <p className="whitespace-nowrap">
-              © Fantasia Trading LLC 2022 200923810277
+              {/* PLACEHOLDER: confirmar razón social / CUIT antes de publicar */}
+              © Novexion 2026. Todos los derechos reservados.
             </p>
 
             {/* Payment method badges */}
@@ -192,7 +165,7 @@ export function FooterSection() {
               {paymentMethods.map((method) => (
                 <span
                   key={method}
-                  className="inline-flex items-center justify-center w-10 h-6 text-[9px] font-semibold border border-white/20 rounded text-white/50 bg-white/[0.03]"
+                  className="inline-flex items-center justify-center h-6 px-2 text-[9px] font-semibold border border-white/20 rounded text-white/60 bg-white/[0.03]"
                 >
                   {method}
                 </span>
@@ -212,19 +185,6 @@ export function FooterSection() {
                 </span>
               ))}
             </div>
-          </div>
-
-          {/* ── Brand switcher ── */}
-          <div className="flex flex-wrap gap-x-6 gap-y-2 items-center justify-center pt-4 border-t border-white/10">
-            {brandNames.map((brand) => (
-              <a
-                key={brand}
-                href="#"
-                className="text-[14px] font-bold text-[#767880] hover:text-white transition-colors"
-              >
-                {brand}
-              </a>
-            ))}
           </div>
         </div>
       </div>
