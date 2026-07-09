@@ -34,6 +34,7 @@ export function SignatureSoundSection() {
         {/* Background earbud image */}
         <PlaceholderImage
           illustration="/images/novexion/product-main.svg"
+          name="earbud-closeup"
           alt="Primer plano del auricular Novexion"
           brief="FOTO REAL: primer plano de estudio del auricular Novexion Q16-H3."
           fill
@@ -102,6 +103,7 @@ export function SignatureSoundSection() {
           <div className="flex-1 relative min-h-[480px] w-full flex items-center justify-center">
             <PlaceholderImage
               illustration="/images/novexion/smart-case.svg"
+              name="app-voice-settings"
               alt="App Novexion mostrando ajustes de voz e idioma"
               brief="CAPTURA REAL de la app Novexion mostrando la pantalla de configuración de voz/idioma/velocidad."
               fill
@@ -117,6 +119,7 @@ export function SignatureSoundSection() {
           <div className="flex-1 relative min-h-[440px] w-full rounded-2xl overflow-hidden">
             <PlaceholderImage
               illustration="/images/novexion/feature-realtime.svg"
+              name="ai-realtime-adjustment"
               alt="IA ajustando la traducción en tiempo real según el ambiente"
               brief="Gráfico/foto real ilustrando el ajuste en tiempo real de la traducción."
               fill

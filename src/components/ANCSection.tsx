@@ -10,6 +10,7 @@ export function ANCSection() {
         {/* Background image */}
         <PlaceholderImage
           illustration="/images/novexion/usecase-driver.svg"
+          name="noise-street-scene"
           alt="Chofer conversando con Novexion en la calle, sin que el ruido corte la traducción"
           brief="FOTO REAL: escena en la calle o en el auto con tránsito de fondo, mostrando que la conversación sigue clara."
           fill
@@ -44,6 +45,7 @@ export function ANCSection() {
         <div className="relative flex-1 min-h-[400px] lg:min-h-[520px]">
           <PlaceholderImage
             illustration="/images/novexion/translation-bg.svg"
+            name="noise-reduction-graphic"
             alt="Reducción de ruido ambiente para escuchar mejor la traducción"
             brief="Gráfico/foto real ilustrando cómo se reduce el ruido de fondo para escuchar la traducción."
             fill

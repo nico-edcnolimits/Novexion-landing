@@ -1,10 +1,11 @@
 // Note: lucide-react v1.x removed brand icons (Instagram/Facebook/WhatsApp).
 // We use semantic equivalents: Camera → Instagram, Users → Facebook, MessageCircle → WhatsApp.
 import { Camera, Users, MessageCircle, Globe } from "lucide-react";
+import { TIENDANUBE_PRODUCT_URL } from "@/lib/store-links";
 import { cn } from "@/lib/utils";
 
 const companyLinks = ["Sobre Novexion", "Garantía", "Preguntas Frecuentes"];
-const productLinks = ["Novexion Q16-H3", "Kit Individual", "Kit Profesional"];
+const productLinks = [{ label: "Novexion Q16-H3", href: TIENDANUBE_PRODUCT_URL }];
 const supportLinks = [
   "Preguntas Frecuentes",
   "Cómo Funciona la Garantía",
@@ -68,12 +69,12 @@ export function FooterSection() {
             </p>
             <ul className="space-y-2">
               {productLinks.map((link) => (
-                <li key={link}>
+                <li key={link.label}>
                   <a
-                    href="#kits"
+                    href={link.href}
                     className="text-sm text-[#a9b4c9] hover:text-white transition-colors"
                   >
-                    {link}
+                    {link.label}
                   </a>
                 </li>
               ))}

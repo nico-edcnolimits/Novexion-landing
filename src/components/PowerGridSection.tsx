@@ -1,175 +1,187 @@
 import { cn } from "@/lib/utils";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 
-interface FeatureCardProps {
+interface KspCardData {
+  id: string;
   title: string;
-  subtitle: string;
-  imageSrc?: string;
-  imageAlt?: string;
-  imageBrief?: string;
+  subtitle?: string;
+  imageSrc: string;
+  imageName: string;
+  imageAlt: string;
+  imageBrief: string;
+  align?: "left" | "center";
+}
+
+const sideCards: {
+  left: [KspCardData, KspCardData];
+  right: [KspCardData, KspCardData];
+} = {
+  left: [
+    {
+      id: "realtime",
+      title: "Traducción Instantánea",
+      subtitle: "Entendé y respondé al instante, en +140 idiomas",
+      imageSrc: "/images/novexion/feature-realtime.svg",
+      imageName: "feature-realtime",
+      imageAlt: "Traducción instantánea con Novexion",
+      imageBrief:
+        "Foto/video real mostrando la traducción apareciendo casi sin demora.",
+    },
+    {
+      id: "openear",
+      title: "Diseño Open-Ear",
+      subtitle: "Cómodo todo el día, sin taparte el oído",
+      imageSrc: "/images/novexion/feature-openear.svg",
+      imageName: "feature-openear",
+      imageAlt: "Diseño open-ear de Novexion",
+      imageBrief:
+        "Foto real del auricular puesto, mostrando el diseño open-ear.",
+    },
+  ],
+  right: [
+    {
+      id: "facetoface",
+      title: "Modo Cara a Cara y Altavoz",
+      subtitle: "Charla uno a uno o varias personas escuchando",
+      imageSrc: "/images/novexion/feature-facetoface.svg",
+      imageName: "feature-facetoface",
+      imageAlt: "Modo cara a cara con Novexion",
+      imageBrief:
+        "Foto real de dos personas conversando con Novexion en modo cara a cara.",
+    },
+    {
+      id: "bluetooth",
+      title: "Bluetooth 5.4",
+      subtitle: "Conexión rápida y estable con tu celular",
+      imageSrc: "/images/novexion/feature-bluetooth.svg",
+      imageName: "feature-bluetooth",
+      imageAlt: "Bluetooth 5.4 en Novexion",
+      imageBrief:
+        "Foto/gráfico real mostrando la conexión Bluetooth con el celular.",
+    },
+  ],
+};
+
+const centerCard: KspCardData = {
+  id: "chip",
+  title: "Motor de Traducción IA en Tiempo Real",
+  imageSrc: "/images/novexion/product-chip.svg",
+  imageName: "ai-engine",
+  imageAlt: "Motor de traducción IA de Novexion",
+  imageBrief:
+    "Ilustración/render real del motor de traducción o del chip, si el proveedor la provee.",
+  align: "center",
+};
+
+interface KspCardProps {
+  card: KspCardData;
   className?: string;
 }
 
-function FeatureCard({
-  title,
-  subtitle,
-  imageSrc,
-  imageAlt,
-  imageBrief,
-  className,
-}: FeatureCardProps) {
+function KspCard({ card, className }: KspCardProps) {
+  const align = card.align ?? "left";
+
   return (
-    <div
+    <article
       className={cn(
-        "relative overflow-hidden rounded-2xl border flex flex-col",
-        "bg-white/[0.04] border-white/10",
+        "relative overflow-hidden rounded-xl bg-black lg:rounded-2xl",
         className
       )}
     >
-      {imageSrc && (
-        <div className="relative w-full" style={{ height: "280px" }}>
-          <PlaceholderImage
-            illustration={imageSrc}
-            alt={imageAlt ?? title}
-            brief={imageBrief ?? "Reemplazar por foto/video real del producto"}
-            fill
-            className="rounded-none border-0"
-          />
-        </div>
-      )}
-      <div className="p-5">
-        <p
-          className="text-white font-bold mb-1"
-          style={{ fontSize: "20px", fontFamily: "var(--font-montserrat)" }}
-        >
-          {title}
-        </p>
-        <p
-          style={{
-            color: "#a9b4c9",
-            fontSize: "14px",
-            fontFamily: "var(--font-montserrat)",
-          }}
-        >
-          {subtitle}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function CenterChipCard() {
-  return (
-    <div
-      className="relative overflow-hidden rounded-2xl flex flex-col items-center justify-center"
-      style={{
-        background: "rgba(255,255,255,0.04)",
-        border: "1px solid rgba(255,255,255,0.1)",
-        minHeight: "580px",
-        padding: "40px 24px",
-      }}
-    >
-      <div className="relative w-full mb-6" style={{ height: "320px" }}>
-        <PlaceholderImage
-          illustration="/images/novexion/product-chip.svg"
-          alt="Motor de traducción IA de Novexion"
-          brief="Ilustración/render real del motor de traducción o del chip, si el proveedor la provee."
-          fill
-          className="rounded-none border-0"
-        />
-      </div>
-      <p
-        className="text-white text-center"
-        style={{
-          fontSize: "20px",
-          fontFamily: "var(--font-montserrat)",
-          fontWeight: 700,
-          lineHeight: "1.4",
-        }}
+      <PlaceholderImage
+        illustration={card.imageSrc}
+        name={card.imageName}
+        alt={card.imageAlt}
+        brief={card.imageBrief}
+        fill
+        className="rounded-none border-0"
+      />
+      <div
+        className={cn(
+          "absolute inset-0 flex flex-col justify-start p-4 xl:p-6 2xl:p-8",
+          align === "center" ? "items-center text-center" : "items-start text-left"
+        )}
       >
-        Motor de Traducción IA en Tiempo Real: procesa tu voz y la traduce en
-        milisegundos, directo en el auricular
-      </p>
-    </div>
+        <p
+          className="font-bold leading-[1.2] tracking-[-0.04em] text-[#f5f6f7]"
+          style={{ fontSize: "clamp(18px, 1.25vw, 24px)" }}
+        >
+          {card.title}
+        </p>
+        {card.subtitle && (
+          <p
+            className="mt-1 font-bold leading-[1.4] tracking-[-0.04em] text-[#f5f6f7]"
+            style={{ fontSize: "clamp(13px, 0.9vw, 16px)" }}
+          >
+            {card.subtitle}
+          </p>
+        )}
+      </div>
+    </article>
   );
 }
 
 export function PowerGridSection() {
-  return (
-    <section
-      className="w-full"
-      style={{
-        background: "#0A1F44",
-        padding: "80px 64px",
-      }}
-    >
-      {/* Heading */}
-      <div className="text-center mb-12">
-        <h2
-          className="text-white mb-4"
-          style={{
-            fontSize: "48px",
-            fontFamily: "var(--font-montserrat)",
-            fontWeight: 800,
-          }}
-        >
-          Un Motor de Traducción Hecho para Conversar
-        </h2>
-        <p
-          style={{
-            color: "#a9b4c9",
-            fontSize: "18px",
-            fontFamily: "var(--font-montserrat)",
-          }}
-        >
-          IA en el auricular — cuatro funciones que cambian cómo te comunicás
-        </p>
-      </div>
+  const [leftTop, leftBottom] = sideCards.left;
+  const [rightTop, rightBottom] = sideCards.right;
 
-      {/* 3-column grid */}
+  return (
+    <section id="specs" className="relative w-full overflow-hidden px-4 md:px-16">
+      {/* Blue → black fade behind the cards */}
       <div
-        className="grid gap-4 mx-auto"
+        className="pointer-events-none absolute inset-0"
         style={{
-          gridTemplateColumns: "1fr 1.2fr 1fr",
-          maxWidth: "1200px",
+          background:
+            "linear-gradient(180deg, #0A1F44 0%, #071531 28%, #030810 55%, #000000 100%)",
         }}
-      >
-        {/* Left column — 2 stacked cards */}
-        <div className="flex flex-col gap-4">
-          <FeatureCard
-            title="Traducción Instantánea"
-            subtitle="Hablás, y la otra persona te entiende al instante, en +140 idiomas"
-            imageSrc="/images/novexion/feature-realtime.svg"
-            imageAlt="Traducción instantánea"
-            imageBrief="Foto/video real mostrando la traducción apareciendo casi sin demora."
+      />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-60"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 50% at 50% 40%, rgba(30,144,255,0.08) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto w-full max-w-[1100px] py-12 md:py-16">
+        {/* Mobile */}
+        <div className="flex flex-col gap-3 md:hidden">
+          <KspCard
+            card={centerCard}
+            className="aspect-[358/273]"
           />
-          <FeatureCard
-            title="Modo Cara a Cara y Altavoz"
-            subtitle="Elegí cómo traducir: charla uno a uno o varias personas escuchando"
-            imageSrc="/images/novexion/feature-facetoface.svg"
-            imageAlt="Modo cara a cara"
-            imageBrief="Foto real de dos personas conversando con Novexion en modo cara a cara."
-          />
+          <div className="grid grid-cols-2 gap-3">
+            <KspCard card={leftTop} className="aspect-[173/240]" />
+            <KspCard card={rightTop} className="aspect-[173/240]" />
+            <KspCard card={leftBottom} className="aspect-[173/240]" />
+            <KspCard card={rightBottom} className="aspect-[173/240]" />
+          </div>
         </div>
 
-        {/* Center column — tall chip card */}
-        <CenterChipCard />
-
-        {/* Right column — 2 stacked cards */}
-        <div className="flex flex-col gap-4">
-          <FeatureCard
-            title="Diseño Open-Ear"
-            subtitle="Cómodo todo el día, sin taparte el oído del todo"
-            imageSrc="/images/novexion/feature-openear.svg"
-            imageAlt="Diseño open-ear"
-            imageBrief="Foto real del auricular puesto, mostrando el diseño open-ear."
+        {/* Desktop — matches reference ksp1203 grid */}
+        <div
+          className="ksp-desktop-grid hidden gap-3 md:grid lg:gap-4"
+          style={{ gridTemplateRows: "auto auto" }}
+        >
+          <KspCard
+            card={leftTop}
+            className="col-start-1 row-start-1 aspect-[227/240] lg:aspect-[212/240] xl:aspect-[316/256] 2xl:aspect-[334/320]"
           />
-          <FeatureCard
-            title="Bluetooth 5.4"
-            subtitle="Conexión rápida y estable con tu celular"
-            imageSrc="/images/novexion/feature-bluetooth.svg"
-            imageAlt="Bluetooth 5.4"
-            imageBrief="Foto/gráfico real mostrando la conexión Bluetooth con el celular."
+          <KspCard
+            card={leftBottom}
+            className="col-start-1 row-start-2 aspect-[227/240] lg:aspect-[212/240] xl:aspect-[316/256] 2xl:aspect-[334/320]"
+          />
+          <KspCard
+            card={centerCard}
+            className="col-start-2 row-span-2 row-start-1 aspect-[227/492] lg:aspect-[288/496] xl:aspect-[426/528] 2xl:aspect-[685/656]"
+          />
+          <KspCard
+            card={rightTop}
+            className="col-start-3 row-start-1 aspect-[227/240] lg:aspect-[212/240] xl:aspect-[316/256] 2xl:aspect-[334/320]"
+          />
+          <KspCard
+            card={rightBottom}
+            className="col-start-3 row-start-2 aspect-[227/240] lg:aspect-[212/240] xl:aspect-[316/256] 2xl:aspect-[334/320]"
           />
         </div>
       </div>

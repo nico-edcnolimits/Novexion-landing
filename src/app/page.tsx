@@ -7,7 +7,6 @@ import { AwardsStrip } from "@/components/AwardsStrip";
 import { TrialOfferSection } from "@/components/TrialOfferSection";
 import { PowerGridSection } from "@/components/PowerGridSection";
 import { GuinnessSection } from "@/components/GuinnessSection";
-import { ProductExplorerSection } from "@/components/ProductExplorerSection";
 import { AnkerThusSection } from "@/components/AnkerThusSection";
 import { CallQualitySection } from "@/components/CallQualitySection";
 import { ANCSection } from "@/components/ANCSection";
@@ -30,7 +29,6 @@ export default function Home() {
         <TrialOfferSection />
         <PowerGridSection />
         <GuinnessSection />
-        <ProductExplorerSection />
         <AnkerThusSection />
         <CallQualitySection />
         <ANCSection />

@@ -14,6 +14,7 @@ interface BeforeAfterProps {
   afterLabel: string;
   afterTitle: string;
   afterImageSrc: string;
+  afterImageName: string;
   afterImageAlt: string;
   afterImageBrief: string;
 }
@@ -26,6 +27,7 @@ function BeforeAfterBlock({
   afterLabel,
   afterTitle,
   afterImageSrc,
+  afterImageName,
   afterImageAlt,
   afterImageBrief,
 }: BeforeAfterProps) {
@@ -96,6 +98,7 @@ function BeforeAfterBlock({
           >
             <PlaceholderImage
               illustration={afterImageSrc}
+              name={afterImageName}
               alt={afterImageAlt}
               brief={afterImageBrief}
               fill
@@ -188,6 +191,7 @@ export function CallQualitySection() {
         afterLabel="Con Novexion"
         afterTitle="Mirás a los ojos, escuchás la traducción en el oído, seguís la charla"
         afterImageSrc="/images/novexion/usecase-hotel.svg"
+        afterImageName="usecase-facetoface"
         afterImageAlt="Recepcionista de hotel usando modo cara a cara con Novexion"
         afterImageBrief="FOTO REAL: Marina, recepcionista, conversando cara a cara con un huésped extranjero usando Novexion."
       />
@@ -201,6 +205,7 @@ export function CallQualitySection() {
         afterLabel="Con Novexion"
         afterTitle="El auricular traduce en voz alta para que todos escuchen"
         afterImageSrc="/images/novexion/usecase-shop.svg"
+        afterImageName="usecase-speaker"
         afterImageAlt="Comerciante usando modo altavoz con Novexion"
         afterImageBrief="FOTO REAL: Roberto, comerciante, atendiendo a un cliente extranjero con el modo altavoz de Novexion activado."
       />
@@ -271,6 +276,7 @@ export function CallQualitySection() {
           <div className="flex-1 relative min-h-[420px] w-full">
             <PlaceholderImage
               illustration="/images/novexion/product-chip.svg"
+              name="mic-diagram"
               alt="Micrófonos de Novexion captando la voz y reduciendo ruido de fondo"
               brief="Diagrama/foto real mostrando la ubicación de los micrófonos del auricular."
               fill

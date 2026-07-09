@@ -41,6 +41,7 @@ export function AIMeetingSection() {
         <div className="relative flex-1 w-full" style={{ aspectRatio: "600 / 500" }}>
           <PlaceholderImage
             illustration="/images/novexion/specs-infographic.svg"
+            name="app-history-screenshot"
             alt="App Novexion mostrando historial de traducciones"
             brief="CAPTURA REAL de la app Novexion mostrando el historial/frases guardadas, si esta función existe."
             fill

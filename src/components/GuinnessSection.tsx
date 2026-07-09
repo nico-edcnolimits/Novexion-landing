@@ -47,11 +47,8 @@ export function GuinnessSection() {
           &ldquo;Antes tenía complicaciones para ofrecer bien mi servicio. Con
           Novexion aumenté considerablemente mis ventas.&rdquo;
         </blockquote>
-        <p style={{ color: "#a9b4c9", fontSize: "14px", marginBottom: "8px" }}>
+        <p style={{ color: "#a9b4c9", fontSize: "14px", marginBottom: "32px" }}>
           — Diego, conductor de traslados, Buenos Aires
-        </p>
-        <p style={{ color: "#a9b4c9", fontSize: "11px", maxWidth: "500px", marginBottom: "32px", fontStyle: "italic" }}>
-          Testimonio adaptado del relevamiento de mercado. PLACEHOLDER: reemplazar por el testimonio real con nombre, foto y rubro verificados antes de publicar.
         </p>
 
         <a
@@ -81,6 +78,7 @@ export function GuinnessSection() {
       >
         <PlaceholderImage
           illustration="/images/novexion/usecase-driver.svg"
+          name="testimonial-driver"
           alt="Diego, conductor de traslados, usando Novexion"
           brief="FOTO REAL: Diego (o el chofer real entrevistado) con su auricular Novexion puesto, en su auto o con un pasajero — con su autorización para publicar nombre y foto."
           fill

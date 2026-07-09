@@ -15,7 +15,7 @@ const offerCards: OfferCard[] = [
   },
   {
     title: "Compra\nProtegida",
-    value: "Mercado Libre te devuelve el dinero si algo sale mal",
+    value: "Mercado Pago te protege si algo sale mal con tu compra",
     icon: <BadgeCheck size={32} className="text-white" />,
   },
   {
@@ -52,7 +52,7 @@ export function TrialOfferSection() {
           className="text-center"
           style={{ color: "#a9b4c9", fontSize: "16px", maxWidth: "560px" }}
         >
-          Compra 100% protegida por Mercado Libre, garantía oficial de Novexion y soporte en español por WhatsApp.
+          Compra 100% protegida por Mercado Pago, garantía oficial de Novexion y soporte en español por WhatsApp.
         </p>
       </div>
 

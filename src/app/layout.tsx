@@ -12,7 +12,7 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Novexion Q16-H3 — Auriculares Traductor con IA en Tiempo Real | +140 Idiomas",
   description:
-    "Entendé y hacete entender al instante. Auriculares traductor con IA, modo cara a cara y modo altavoz, pantalla LCD en el estuche. Garantía 6 meses. Compra protegida.",
+    "Entendé y hacete entender al instante. Auriculares traductor con IA, modo cara a cara y modo altavoz. Garantía 6 meses. Compra protegida con Mercado Pago.",
 };
 
 export default function RootLayout({

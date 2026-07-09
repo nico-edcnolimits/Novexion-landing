@@ -1,5 +1,6 @@
 "use client";
 
+import { TIENDANUBE_PRODUCT_URL } from "@/lib/store-links";
 import { cn } from "@/lib/utils";
 
 const tabs = [
@@ -60,7 +61,7 @@ export function ProductSubNav({ activeTab = "Resumen" }: ProductSubNavProps) {
 
       {/* Right: Comprar Ahora button */}
       <a
-        href="#kits"
+        href={TIENDANUBE_PRODUCT_URL}
         className="shrink-0 bg-white text-black font-bold transition-opacity hover:opacity-90"
         style={{
           fontSize: "14px",

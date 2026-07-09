@@ -7,6 +7,7 @@ interface FeatureCard {
   subtitle?: string;
   lines?: string[];
   image?: string;
+  imageName?: string;
   imageAlt?: string;
   imageBrief?: string;
   hasBatteryIndicators?: boolean;
@@ -18,6 +19,7 @@ const featureCards: FeatureCard[] = [
     title: "+140 Idiomas",
     subtitle: "Traducí con turistas de casi cualquier país.",
     image: "/images/novexion/feature-realtime.svg",
+    imageName: "feature-languages",
     imageAlt: "Traducción en más de 140 idiomas",
     imageBrief: "Foto/gráfico real listando o mostrando la cobertura de idiomas.",
   },
@@ -30,6 +32,7 @@ const featureCards: FeatureCard[] = [
       "PLACEHOLDER: confirmar horas y ciclos exactos",
     ],
     image: "/images/novexion/product-main.svg",
+    imageName: "feature-battery",
     imageAlt: "Batería de Novexion",
     imageBrief: "Foto real del producto + estuche mostrando indicador de batería.",
     hasBatteryIndicators: true,
@@ -71,9 +74,10 @@ export function MoreFeaturesSection() {
                 !card.image && "bg-white/[0.04]"
               )}
             >
-              {card.image && (
+              {card.image && card.imageName && (
                 <PlaceholderImage
                   illustration={card.image}
+                  name={card.imageName}
                   alt={card.imageAlt ?? card.title}
                   brief={card.imageBrief ?? "Reemplazar por foto real del producto"}
                   fill

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" fill="none">
+  <rect width="900" height="675" fill="#0A1F44"/>
+  <rect x="0" y="400" width="900" height="275" fill="#111"/>
+  <circle cx="450" cy="280" r="120" fill="#334155"/>
+  <ellipse cx="380" cy="270" rx="25" ry="35" fill="#1a1a1a" stroke="#1E90FF" stroke-width="3"/>
+  <text x="450" y="580" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="32" font-weight="700">Marina</text>
+  <text x="450" y="620" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="20">Recepcionista de hotel</text>
+</svg>

@@ -1,6 +1,7 @@
 "use client";
 
 import { Search, ShoppingCart } from "lucide-react";
+import { TIENDANUBE_PRODUCT_URL } from "@/lib/store-links";
 import { cn } from "@/lib/utils";
 
 const trustBullets = [
@@ -13,7 +14,7 @@ const navLinks = [
   { label: "Inicio", href: "#" },
   { label: "Cómo Funciona", href: "#thus" },
   { label: "Testimonios", href: "#testimonios" },
-  { label: "Kits y Precios", href: "#kits" },
+  { label: "Comprar", href: TIENDANUBE_PRODUCT_URL },
   { label: "Preguntas Frecuentes", href: "#faq" },
 ];
 
@@ -38,7 +39,7 @@ export function GlobalNav() {
           ))}
         </nav>
         <span className="text-white" style={{ fontSize: "12px" }}>
-          Compra Protegida Mercado Libre
+          Compra Protegida Mercado Pago
         </span>
       </div>
 
@@ -99,7 +100,7 @@ export function GlobalNav() {
             </button>
           </div>
           <a
-            href="#kits"
+            href={TIENDANUBE_PRODUCT_URL}
             className="inline-flex items-center justify-center text-white font-bold transition-opacity hover:opacity-90 whitespace-nowrap"
             style={{
               backgroundColor: "#1E90FF",

@@ -11,6 +11,7 @@ function PartA() {
       <div className="absolute inset-0 z-0">
         <PlaceholderImage
           illustration="/images/novexion/translation-bg.svg"
+          name="ai-tech-hero"
           alt="Motor de traducción IA de Novexion"
           brief="Fondo real: closeup del auricular Novexion o gráfico del proceso de traducción, tono azul marino."
           fill
@@ -120,6 +121,7 @@ function PartB() {
           <div className="relative mb-6" style={{ width: "64px", height: "64px" }}>
             <PlaceholderImage
               illustration="/images/novexion/step-listen.svg"
+              name="step-listen"
               alt="Escuchás"
               brief="Ícono/gráfico real del paso 'escuchar'."
               fill
@@ -215,6 +217,7 @@ function PartB() {
           <div className="relative mb-6" style={{ width: "64px", height: "64px" }}>
             <PlaceholderImage
               illustration="/images/novexion/step-speak.svg"
+              name="step-speak"
               alt="Respondés"
               brief="Ícono/gráfico real del paso 'responder'."
               fill

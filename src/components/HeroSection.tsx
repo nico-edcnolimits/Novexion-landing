@@ -1,11 +1,12 @@
 import { ShieldCheck, Languages, Truck, BadgeCheck } from "lucide-react";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
+import { TIENDANUBE_PRODUCT_URL } from "@/lib/store-links";
 
 const trustBadges = [
   { icon: Languages, label: "+140 idiomas" },
   { icon: ShieldCheck, label: "Garantía 6 meses" },
   { icon: Truck, label: "Envío a todo el país" },
-  { icon: BadgeCheck, label: "Compra Protegida Mercado Libre" },
+  { icon: BadgeCheck, label: "Compra Protegida Mercado Pago" },
 ];
 
 export function HeroSection() {
@@ -17,6 +18,7 @@ export function HeroSection() {
       {/* Background image */}
       <PlaceholderImage
         illustration="/images/novexion/hero-product.svg"
+        name="hero-driver"
         alt="Chofer de traslados usando Novexion mientras conversa con un pasajero extranjero"
         brief="FOTO REAL: Diego, chofer de traslados, usando Novexion en el auto mientras conversa con un pasajero extranjero. Horizontal 1920x1080, buena luz, se le tiene que ver el auricular puesto."
         fill
@@ -66,7 +68,7 @@ export function HeroSection() {
         {/* CTA buttons */}
         <div className="flex items-center gap-3">
           <a
-            href="#kits"
+            href={TIENDANUBE_PRODUCT_URL}
             className="inline-flex items-center justify-center text-white font-bold transition-opacity hover:opacity-90 whitespace-nowrap"
             style={{
               backgroundColor: "#1E90FF",

@@ -47,6 +47,7 @@ export function VoiceControlSection() {
           <div className="flex-1 relative min-h-[400px] lg:min-h-[600px] rounded-none overflow-hidden">
             <PlaceholderImage
               illustration="/images/novexion/hands-free.svg"
+              name="tap-control-photo"
               alt="Chofer tocando el auricular Novexion para activar la traducción, sin usar el celular"
               brief="FOTO REAL: chofer o recepcionista tocando el auricular para activar/cambiar el modo, manos libres."
               fill
