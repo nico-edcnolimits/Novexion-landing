@@ -1,5 +1,6 @@
 import { ShieldCheck, Languages, Truck, BadgeCheck } from "lucide-react";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
+import { BackgroundVideo } from "@/components/ui/background-video";
 import { TIENDANUBE_PRODUCT_URL } from "@/lib/store-links";
 
 const trustBadges = [
@@ -15,7 +16,7 @@ export function HeroSection() {
       className="relative w-full overflow-hidden"
       style={{ minHeight: "calc(100vh - 126px)" }}
     >
-      {/* Background image */}
+      {/* Background image — stays mounted as poster/fallback under the video */}
       <PlaceholderImage
         illustration="/images/novexion/hero-product.svg"
         name="hero-driver"
@@ -25,6 +26,10 @@ export function HeroSection() {
         priority
         className="rounded-none border-0"
       />
+
+      {/* Background video — plays on top of the photo; if it fails to load, it
+          unmounts and the photo above shows through */}
+      <BackgroundVideo src="/images/novexion/video-landing.mp4" />
 
       {/* Dark overlay for text legibility */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
