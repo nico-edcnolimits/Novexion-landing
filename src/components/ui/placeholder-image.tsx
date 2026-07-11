@@ -24,15 +24,20 @@ interface PlaceholderImageProps {
   height?: number;
   className?: string;
   priority?: boolean;
+  /** How the image fills its box. "cover" (default) crops to fill; "contain" shows it whole. */
+  fit?: "cover" | "contain";
 }
 
 /**
  * Stand-in for a real product photo/video. Tries to load the real asset at
- * /images/novexion/{name}.webp first; if it 404s, falls back to an on-brand
- * placeholder illustration with a visible "PLACEHOLDER" tag and a caption
- * naming the exact file to drop in. Once the real .webp exists, it just
- * renders — no code changes needed.
+ * /images/novexion/{name}.webp first; if it 404s, falls back to the on-brand
+ * placeholder illustration. In development the fallback shows a "PLACEHOLDER"
+ * tag + a caption naming the exact file to drop in; in the production build
+ * (e.g. the live landing running ads) only the clean illustration renders, so
+ * nothing looks broken while real assets are still pending. Once the real
+ * .webp exists, it just renders — no code changes needed.
  */
+const IS_DEV = process.env.NODE_ENV === "development";
 export function PlaceholderImage({
   illustration,
   name,
@@ -43,9 +48,11 @@ export function PlaceholderImage({
   height,
   className,
   priority,
+  fit = "cover",
 }: PlaceholderImageProps) {
   const [realAssetMissing, setRealAssetMissing] = useState(false);
   const realSrc = `/images/novexion/${name}.webp`;
+  const fitClass = fit === "contain" ? "object-contain" : "object-cover object-center";
 
   if (!realAssetMissing) {
     return (
@@ -59,7 +66,7 @@ export function PlaceholderImage({
           width={fill ? undefined : width}
           height={fill ? undefined : height}
           priority={priority}
-          className={cn("object-cover object-center", fill ? "" : "w-full h-full")}
+          className={cn(fitClass, fill ? "" : "w-full h-full")}
           onError={() => setRealAssetMissing(true)}
         />
       </div>
@@ -69,11 +76,12 @@ export function PlaceholderImage({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-xl border-2 border-dashed",
+        "relative overflow-hidden",
+        IS_DEV ? "rounded-xl border-2 border-dashed" : "",
         fill ? "absolute inset-0" : "",
         className
       )}
-      style={{ borderColor: "var(--brand)" }}
+      style={IS_DEV ? { borderColor: "var(--brand)" } : undefined}
     >
       <Image
         src={illustration}
@@ -84,22 +92,26 @@ export function PlaceholderImage({
         priority={priority}
         className={cn("object-cover object-center", fill ? "" : "w-full h-full")}
       />
-      <div
-        className="absolute top-2 left-2 flex items-center gap-1.5 rounded-full px-2.5 py-1 text-white"
-        style={{ backgroundColor: "var(--brand)", fontSize: "11px", fontWeight: 700 }}
-      >
-        <ImageOff size={12} />
-        PLACEHOLDER
-      </div>
-      <div
-        className="absolute bottom-0 left-0 right-0 px-3 py-2 text-white"
-        style={{ backgroundColor: "rgba(10,31,68,0.85)", fontSize: "11px", lineHeight: 1.4 }}
-      >
-        <p className="font-mono font-bold" style={{ color: "#7fc4ff" }}>
-          Reemplazar: public/images/novexion/{name}.webp
-        </p>
-        <p>{brief}</p>
-      </div>
+      {IS_DEV && (
+        <>
+          <div
+            className="absolute top-2 left-2 flex items-center gap-1.5 rounded-full px-2.5 py-1 text-white"
+            style={{ backgroundColor: "var(--brand)", fontSize: "11px", fontWeight: 700 }}
+          >
+            <ImageOff size={12} />
+            PLACEHOLDER
+          </div>
+          <div
+            className="absolute bottom-0 left-0 right-0 px-3 py-2 text-white"
+            style={{ backgroundColor: "rgba(10,31,68,0.85)", fontSize: "11px", lineHeight: 1.4 }}
+          >
+            <p className="font-mono font-bold" style={{ color: "#7fc4ff" }}>
+              Reemplazar: public/images/novexion/{name}.webp
+            </p>
+            <p>{brief}</p>
+          </div>
+        </>
+      )}
     </div>
   );
 }

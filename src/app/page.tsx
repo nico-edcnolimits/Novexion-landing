@@ -1,45 +1,51 @@
-"use client";
-
 import { GlobalNav } from "@/components/GlobalNav";
-import { ProductSubNav } from "@/components/ProductSubNav";
 import { HeroSection } from "@/components/HeroSection";
 import { AwardsStrip } from "@/components/AwardsStrip";
-import { TrialOfferSection } from "@/components/TrialOfferSection";
 import { PowerGridSection } from "@/components/PowerGridSection";
-import { GuinnessSection } from "@/components/GuinnessSection";
 import { AnkerThusSection } from "@/components/AnkerThusSection";
+import { HowToUseSection } from "@/components/HowToUseSection";
 import { CallQualitySection } from "@/components/CallQualitySection";
-import { ANCSection } from "@/components/ANCSection";
-import { SignatureSoundSection } from "@/components/SignatureSoundSection";
+import { NoiseReductionSection } from "@/components/NoiseReductionSection";
 import { VoiceControlSection } from "@/components/VoiceControlSection";
-import { ScreenControlSection } from "@/components/ScreenControlSection";
-import { AIMeetingSection } from "@/components/AIMeetingSection";
-import { MoreFeaturesSection } from "@/components/MoreFeaturesSection";
+import { GuinnessSection } from "@/components/GuinnessSection";
+import { TrialOfferSection } from "@/components/TrialOfferSection";
+import { FaqSection } from "@/components/FaqSection";
 import { ColorOptionsSection } from "@/components/ColorOptionsSection";
 import { FooterSection } from "@/components/FooterSection";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 
 export default function Home() {
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="text-white min-h-screen" style={{ backgroundColor: "#0A1F44" }}>
       <GlobalNav />
-      <ProductSubNav />
       <main>
+        {/* Hook + pain point */}
         <HeroSection />
+        {/* Para quién es (segmentación) */}
         <AwardsStrip />
-        <TrialOfferSection />
+        {/* Beneficios clave */}
         <PowerGridSection />
-        <GuinnessSection />
+        {/* Cómo funciona la traducción IA */}
         <AnkerThusSection />
+        {/* Cómo usar en 3 pasos (Descarga / Conecta / Conversa) */}
+        <HowToUseSection />
+        {/* Funciona en cualquier ambiente (calle / local) */}
         <CallQualitySection />
-        <ANCSection />
-        <SignatureSoundSection />
+        {/* Prueba visual del filtro de reducción de ruido (Sin/Con Novexion) */}
+        <NoiseReductionSection />
+        {/* Fácil de usar, manos libres */}
         <VoiceControlSection />
-        <ScreenControlSection />
-        <AIMeetingSection />
-        <MoreFeaturesSection />
+        {/* Prueba social */}
+        <GuinnessSection />
+        {/* Garantía + Mercado Pago (reversión de riesgo) */}
+        <TrialOfferSection />
+        {/* Objeciones finales */}
+        <FaqSection />
+        {/* Cierre de conversión */}
         <ColorOptionsSection />
       </main>
       <FooterSection />
+      <WhatsAppFloat />
     </div>
   );
 }

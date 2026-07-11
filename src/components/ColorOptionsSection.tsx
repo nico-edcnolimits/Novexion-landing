@@ -35,6 +35,9 @@ export function ColorOptionsSection() {
         >
           Comprar Ahora
         </a>
+        <p className="text-[#a9b4c9] mt-4" style={{ fontSize: "14px" }}>
+          Precio y cuotas sin interés en la tienda oficial · Garantía 6 meses · Envío a todo el país
+        </p>
       </div>
     </section>
   );

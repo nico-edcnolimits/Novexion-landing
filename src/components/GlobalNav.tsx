@@ -14,7 +14,6 @@ const navLinks = [
   { label: "Inicio", href: "#" },
   { label: "Cómo Funciona", href: "#thus" },
   { label: "Testimonios", href: "#testimonios" },
-  { label: "Comprar", href: TIENDANUBE_PRODUCT_URL },
   { label: "Preguntas Frecuentes", href: "#faq" },
 ];
 

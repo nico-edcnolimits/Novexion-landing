@@ -1,4 +1,6 @@
+import { Ear, MessagesSquare } from "lucide-react";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
+import { TIENDANUBE_PRODUCT_URL } from "@/lib/store-links";
 
 function PartA() {
   return (
@@ -72,13 +74,13 @@ function PartA() {
         </p>
 
         {/* CTA */}
-        <button
-          type="button"
-          className="cursor-pointer transition-opacity hover:opacity-90"
+        <a
+          href={TIENDANUBE_PRODUCT_URL}
+          className="cursor-pointer transition-opacity hover:opacity-90 inline-block"
           style={{
-            background: "transparent",
+            background: "#1E90FF",
             color: "#ffffff",
-            border: "1.5px solid #ffffff",
+            border: "1.5px solid #1E90FF",
             borderRadius: "24px",
             padding: "12px 32px",
             fontSize: "16px",
@@ -86,11 +88,8 @@ function PartA() {
             fontFamily: "var(--font-montserrat)",
           }}
         >
-          Ver Video Demostrativo
-        </button>
-        <p style={{ color: "#a9b4c9", fontSize: "11px", marginTop: "12px", fontStyle: "italic" }}>
-          PLACEHOLDER: sumar video real demostrando el producto en uso.
-        </p>
+          Comprar Ahora
+        </a>
       </div>
     </section>
   );
@@ -118,15 +117,11 @@ function PartB() {
           }}
         >
           {/* Icon */}
-          <div className="relative mb-6" style={{ width: "64px", height: "64px" }}>
-            <PlaceholderImage
-              illustration="/images/novexion/step-listen.svg"
-              name="step-listen"
-              alt="Escuchás"
-              brief="Ícono/gráfico real del paso 'escuchar'."
-              fill
-              className="rounded-lg"
-            />
+          <div
+            className="flex items-center justify-center rounded-xl mb-6"
+            style={{ width: "64px", height: "64px", backgroundColor: "rgba(30,144,255,0.15)" }}
+          >
+            <Ear size={30} style={{ color: "#1E90FF" }} />
           </div>
 
           <h3
@@ -214,15 +209,11 @@ function PartB() {
           style={{ padding: "0 0 0 40px" }}
         >
           {/* Icon */}
-          <div className="relative mb-6" style={{ width: "64px", height: "64px" }}>
-            <PlaceholderImage
-              illustration="/images/novexion/step-speak.svg"
-              name="step-speak"
-              alt="Respondés"
-              brief="Ícono/gráfico real del paso 'responder'."
-              fill
-              className="rounded-lg"
-            />
+          <div
+            className="flex items-center justify-center rounded-xl mb-6"
+            style={{ width: "64px", height: "64px", backgroundColor: "rgba(30,144,255,0.15)" }}
+          >
+            <MessagesSquare size={30} style={{ color: "#1E90FF" }} />
           </div>
 
           <h3
