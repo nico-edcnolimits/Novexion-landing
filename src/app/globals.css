@@ -150,6 +150,13 @@
   }
 }
 
+/* Smooth in-page scrolling for nav/CTA anchor links (#thus, #specs, #faq, etc.) */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 /* Novexion utility classes */
 @layer utilities {
   .text-brand {

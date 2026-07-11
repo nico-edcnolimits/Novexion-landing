@@ -4,7 +4,6 @@ import { PlaceholderImage } from "@/components/ui/placeholder-image";
 interface KspCardData {
   id: string;
   title: string;
-  subtitle?: string;
   imageSrc: string;
   imageName: string;
   imageAlt: string;
@@ -20,7 +19,6 @@ const sideCards: {
     {
       id: "realtime",
       title: "Traducción Instantánea",
-      subtitle: "Entendé y respondé al instante, en +140 idiomas",
       imageSrc: "/images/novexion/feature-realtime.svg",
       imageName: "feature-realtime",
       imageAlt: "Traducción instantánea con Novexion",
@@ -30,7 +28,6 @@ const sideCards: {
     {
       id: "openear",
       title: "Diseño Open-Ear",
-      subtitle: "Cómodo todo el día, sin taparte el oído",
       imageSrc: "/images/novexion/feature-openear.svg",
       imageName: "feature-openear",
       imageAlt: "Diseño open-ear de Novexion",
@@ -42,7 +39,6 @@ const sideCards: {
     {
       id: "facetoface",
       title: "Modo Cara a Cara y Altavoz",
-      subtitle: "Charla uno a uno o varias personas escuchando",
       imageSrc: "/images/novexion/feature-facetoface.svg",
       imageName: "feature-facetoface",
       imageAlt: "Modo cara a cara con Novexion",
@@ -52,7 +48,6 @@ const sideCards: {
     {
       id: "bluetooth",
       title: "Bluetooth 5.4",
-      subtitle: "Conexión rápida y estable con tu celular",
       imageSrc: "/images/novexion/feature-bluetooth.svg",
       imageName: "feature-bluetooth",
       imageAlt: "Bluetooth 5.4 en Novexion",
@@ -104,18 +99,14 @@ function KspCard({ card, className }: KspCardProps) {
       >
         <p
           className="font-bold leading-[1.2] tracking-[-0.04em] text-[#f5f6f7]"
-          style={{ fontSize: "clamp(18px, 1.25vw, 24px)" }}
+          style={{
+            fontSize: "clamp(18px, 1.25vw, 24px)",
+            textShadow:
+              "0 2px 10px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.9), 0 0 24px rgba(0,0,0,0.6)",
+          }}
         >
           {card.title}
         </p>
-        {card.subtitle && (
-          <p
-            className="mt-1 font-bold leading-[1.4] tracking-[-0.04em] text-[#f5f6f7]"
-            style={{ fontSize: "clamp(13px, 0.9vw, 16px)" }}
-          >
-            {card.subtitle}
-          </p>
-        )}
       </div>
     </article>
   );

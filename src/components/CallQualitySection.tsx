@@ -45,17 +45,21 @@ export function CallQualitySection() {
           {scenarios.map(({ icon: Icon, title, text }) => (
             <div
               key={title}
-              className="rounded-2xl border border-white/10 bg-white/[0.04] p-8 flex flex-col items-start"
+              className="group rounded-2xl border border-white/10 bg-white/[0.04] p-8 flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1.5 hover:border-[#1E90FF]/50 hover:bg-white/[0.07]"
             >
               <div
-                className="flex items-center justify-center rounded-xl mb-5"
+                className="flex items-center justify-center rounded-xl mb-5 transition-all duration-300 ease-out group-hover:scale-110 group-hover:shadow-[0_0_24px_rgba(30,144,255,0.45)]"
                 style={{
                   width: "52px",
                   height: "52px",
                   backgroundColor: "rgba(30,144,255,0.15)",
                 }}
               >
-                <Icon size={26} style={{ color: "#1E90FF" }} />
+                <Icon
+                  size={26}
+                  style={{ color: "#1E90FF" }}
+                  className="transition-transform duration-300 group-hover:scale-110"
+                />
               </div>
               <h3
                 className="text-white font-bold mb-2"

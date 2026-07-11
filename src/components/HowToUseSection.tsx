@@ -7,12 +7,12 @@ import { PlaceholderImage } from "@/components/ui/placeholder-image";
 export function HowToUseSection() {
   return (
     <section className="relative overflow-hidden" style={{ backgroundColor: "#ffffff" }}>
-      {/* Fundido superior: azul marino → blanco */}
+      {/* Fundido superior: negro → blanco (la sección de arriba termina en negro puro) */}
       <div
         className="pointer-events-none absolute top-0 left-0 right-0"
         style={{
           height: "150px",
-          background: "linear-gradient(180deg, #0A1F44 0%, rgba(10,31,68,0) 100%)",
+          background: "linear-gradient(180deg, #000000 0%, rgba(0,0,0,0) 100%)",
         }}
       />
       {/* Fundido inferior: blanco → azul marino */}

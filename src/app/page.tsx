@@ -13,6 +13,7 @@ import { FaqSection } from "@/components/FaqSection";
 import { ColorOptionsSection } from "@/components/ColorOptionsSection";
 import { FooterSection } from "@/components/FooterSection";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { Reveal } from "@/components/ui/reveal";
 
 export default function Home() {
   return (
@@ -20,31 +21,57 @@ export default function Home() {
       <GlobalNav />
       <main>
         {/* Hook + pain point */}
-        <HeroSection />
+        <Reveal>
+          <HeroSection />
+        </Reveal>
         {/* Para quién es (segmentación) */}
-        <AwardsStrip />
-        {/* Beneficios clave */}
-        <PowerGridSection />
+        <Reveal>
+          <AwardsStrip />
+        </Reveal>
         {/* Cómo funciona la traducción IA */}
-        <AnkerThusSection />
+        <Reveal>
+          <AnkerThusSection />
+        </Reveal>
+        {/* Beneficios clave */}
+        <Reveal>
+          <PowerGridSection />
+        </Reveal>
         {/* Cómo usar en 3 pasos (Descarga / Conecta / Conversa) */}
-        <HowToUseSection />
+        <Reveal>
+          <HowToUseSection />
+        </Reveal>
         {/* Funciona en cualquier ambiente (calle / local) */}
-        <CallQualitySection />
+        <Reveal>
+          <CallQualitySection />
+        </Reveal>
         {/* Prueba visual del filtro de reducción de ruido (Sin/Con Novexion) */}
-        <NoiseReductionSection />
+        <Reveal>
+          <NoiseReductionSection />
+        </Reveal>
         {/* Fácil de usar, manos libres */}
-        <VoiceControlSection />
+        <Reveal>
+          <VoiceControlSection />
+        </Reveal>
         {/* Prueba social */}
-        <GuinnessSection />
+        <Reveal>
+          <GuinnessSection />
+        </Reveal>
         {/* Garantía + Mercado Pago (reversión de riesgo) */}
-        <TrialOfferSection />
+        <Reveal>
+          <TrialOfferSection />
+        </Reveal>
         {/* Objeciones finales */}
-        <FaqSection />
+        <Reveal>
+          <FaqSection />
+        </Reveal>
         {/* Cierre de conversión */}
-        <ColorOptionsSection />
+        <Reveal>
+          <ColorOptionsSection />
+        </Reveal>
       </main>
-      <FooterSection />
+      <Reveal>
+        <FooterSection />
+      </Reveal>
       <WhatsAppFloat />
     </div>
   );

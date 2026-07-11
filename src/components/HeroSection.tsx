@@ -34,86 +34,90 @@ export function HeroSection() {
       {/* Dark overlay for text legibility */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
 
-      {/* Left content — absolute positioned */}
+      {/* Content — single flex column so a taller headline pushes the trust
+          badges down naturally instead of the two overlapping */}
       <div
-        className="absolute top-1/2 -translate-y-1/2 flex flex-col gap-6"
-        style={{ left: "64px", maxWidth: "560px" }}
+        className="absolute inset-0 flex flex-col justify-between"
+        style={{ padding: "48px 64px 32px" }}
       >
-        {/* Eyebrow */}
-        <p
-          className="text-white"
-          style={{ fontSize: "16px", fontWeight: 500, opacity: 0.9 }}
-        >
-          NOVEXION · Traductor con IA en tiempo real
-        </p>
+        <div className="flex flex-col justify-center flex-1 gap-6" style={{ maxWidth: "560px" }}>
+          {/* Eyebrow */}
+          <p
+            className="text-white"
+            style={{ fontSize: "16px", fontWeight: 500, opacity: 0.9 }}
+          >
+            NOVEXION · Traductor con IA en tiempo real
+          </p>
 
-        {/* H1 */}
-        <h1
-          className="text-white"
-          style={{
-            fontSize: "56px",
-            fontWeight: 800,
-            lineHeight: 1.1,
-            letterSpacing: "-0.03em",
-          }}
-        >
-          Cada Cliente Que No
-          <br />
-          Entendés Es Una Venta Que Se Va
-        </h1>
-
-        {/* Sub-headline */}
-        <p
-          className="text-white"
-          style={{ fontSize: "16px", fontWeight: 500 }}
-        >
-          No necesitás hablar perfecto. Necesitás entender y responder — al instante, en +140 idiomas.
-        </p>
-
-        {/* CTA buttons */}
-        <div className="flex items-center gap-3">
-          <a
-            href={TIENDANUBE_PRODUCT_URL}
-            className="inline-flex items-center justify-center text-white font-bold transition-opacity hover:opacity-90 whitespace-nowrap"
+          {/* H1 */}
+          <h1
+            className="text-white"
             style={{
-              backgroundColor: "#1E90FF",
-              border: "1.5px solid #1E90FF",
-              borderRadius: "24px",
-              padding: "12px 24px",
-              fontSize: "16px",
-              fontWeight: 700,
+              fontSize: "48px",
+              fontWeight: 800,
+              lineHeight: 1.15,
+              letterSpacing: "-0.03em",
             }}
           >
-            Comprar Ahora
-          </a>
-          <a
-            href="#thus"
-            className="inline-flex items-center justify-center text-white font-bold transition-opacity hover:opacity-90 whitespace-nowrap"
-            style={{
-              backgroundColor: "transparent",
-              border: "1.5px solid white",
-              borderRadius: "24px",
-              padding: "12px 24px",
-              fontSize: "16px",
-              fontWeight: 700,
-            }}
-          >
-            Ver Cómo Funciona
-          </a>
-        </div>
-      </div>
+            Cada Cliente Que
+            <br />
+            No Entendés
+            <br />
+            Es Una
+            <br />
+            Oportunidad Perdida
+          </h1>
 
-      {/* Trust badges row — bottom of hero */}
-      <div
-        className="absolute bottom-0 left-0 right-0 flex flex-wrap items-center gap-x-8 gap-y-2"
-        style={{ paddingBottom: "32px", paddingLeft: "64px", paddingRight: "64px" }}
-      >
-        {trustBadges.map(({ icon: Icon, label }) => (
-          <div key={label} className="flex items-center gap-2 text-white">
-            <Icon size={20} />
-            <span style={{ fontSize: "14px", fontWeight: 600 }}>{label}</span>
+          {/* Sub-headline */}
+          <p
+            className="text-white"
+            style={{ fontSize: "16px", fontWeight: 500 }}
+          >
+            No necesitás hablar perfecto. Necesitás entender y responder — al instante, en +140 idiomas.
+          </p>
+
+          {/* CTA buttons */}
+          <div className="flex items-center gap-3">
+            <a
+              href={TIENDANUBE_PRODUCT_URL}
+              className="inline-flex items-center justify-center text-white font-bold transition-opacity hover:opacity-90 whitespace-nowrap"
+              style={{
+                backgroundColor: "#1E90FF",
+                border: "1.5px solid #1E90FF",
+                borderRadius: "24px",
+                padding: "12px 24px",
+                fontSize: "16px",
+                fontWeight: 700,
+              }}
+            >
+              Comprar Ahora
+            </a>
+            <a
+              href="#thus"
+              className="inline-flex items-center justify-center text-white font-bold transition-opacity hover:opacity-90 whitespace-nowrap"
+              style={{
+                backgroundColor: "transparent",
+                border: "1.5px solid white",
+                borderRadius: "24px",
+                padding: "12px 24px",
+                fontSize: "16px",
+                fontWeight: 700,
+              }}
+            >
+              Ver Cómo Funciona
+            </a>
           </div>
-        ))}
+        </div>
+
+        {/* Trust badges row — bottom of hero */}
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
+          {trustBadges.map(({ icon: Icon, label }) => (
+            <div key={label} className="flex items-center gap-2 text-white">
+              <Icon size={20} />
+              <span style={{ fontSize: "14px", fontWeight: 600 }}>{label}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -4,16 +4,37 @@ export function GuinnessSection() {
   return (
     <section
       id="testimonios"
-      className="w-full flex flex-col items-center"
+      className="relative w-full overflow-hidden flex flex-col items-center"
       style={{
         background: "#0A1F44",
         minHeight: "70vh",
       }}
     >
+      {/* Background image — full-bleed, same treatment as "Tu Voz, Traducida al Instante" */}
+      <div className="absolute inset-0 z-0">
+        <PlaceholderImage
+          illustration="/images/novexion/usecase-driver.svg"
+          name="testimonial-driver"
+          alt="Diego, conductor de traslados, usando Novexion"
+          brief="FOTO REAL: Diego (o el chofer real entrevistado) con su auricular Novexion puesto, en su auto o con un pasajero — con su autorización para publicar nombre y foto."
+          fill
+          fit="cover"
+          priority
+          className="rounded-none border-0"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(10,31,68,0.9) 0%, rgba(10,31,68,0.65) 45%, rgba(10,31,68,0.88) 100%)",
+          }}
+        />
+      </div>
+
       {/* Text block */}
       <div
-        className="flex flex-col items-center text-center"
-        style={{ paddingTop: "80px", paddingLeft: "32px", paddingRight: "32px" }}
+        className="relative z-10 flex flex-col items-center text-center"
+        style={{ paddingTop: "80px", paddingBottom: "80px", paddingLeft: "32px", paddingRight: "32px" }}
       >
         <h2
           className="text-white"
@@ -30,7 +51,7 @@ export function GuinnessSection() {
         </h2>
         <p
           style={{
-            color: "#a9b4c9",
+            color: "#c3cce0",
             fontSize: "18px",
             fontFamily: "var(--font-montserrat)",
             marginBottom: "32px",
@@ -47,7 +68,7 @@ export function GuinnessSection() {
           &ldquo;Antes tenía complicaciones para ofrecer bien mi servicio. Con
           Novexion aumenté considerablemente mis ventas.&rdquo;
         </blockquote>
-        <p style={{ color: "#a9b4c9", fontSize: "14px", marginBottom: "32px" }}>
+        <p style={{ color: "#c3cce0", fontSize: "14px", marginBottom: "32px" }}>
           — Diego, conductor de traslados, Buenos Aires
         </p>
 
@@ -63,28 +84,11 @@ export function GuinnessSection() {
             fontWeight: 700,
             fontFamily: "var(--font-montserrat)",
             border: "none",
-            marginBottom: "48px",
             display: "inline-block",
           }}
         >
           Descubrí Cómo Funciona
         </a>
-      </div>
-
-      {/* Testimonial photo */}
-      <div
-        className="relative w-full"
-        style={{ maxWidth: "900px", aspectRatio: "900 / 600", margin: "0 auto" }}
-      >
-        <PlaceholderImage
-          illustration="/images/novexion/usecase-driver.svg"
-          name="testimonial-driver"
-          alt="Diego, conductor de traslados, usando Novexion"
-          brief="FOTO REAL: Diego (o el chofer real entrevistado) con su auricular Novexion puesto, en su auto o con un pasajero — con su autorización para publicar nombre y foto."
-          fill
-          priority
-          className="rounded-none border-0"
-        />
       </div>
     </section>
   );
