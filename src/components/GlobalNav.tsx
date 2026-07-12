@@ -1,13 +1,14 @@
 "use client";
 
-import { Search, ShoppingCart } from "lucide-react";
+import { Search, ShoppingCart, Languages, ShieldCheck, Truck, BadgeCheck } from "lucide-react";
 import { TIENDANUBE_PRODUCT_URL } from "@/lib/store-links";
 import { cn } from "@/lib/utils";
 
-const trustBullets = [
-  "Envío a todo el país",
-  "Cuotas sin interés con Mercado Pago",
-  "Garantía 6 meses",
+const trustBadges = [
+  { icon: Languages, label: "+140 idiomas" },
+  { icon: ShieldCheck, label: "Garantía 6 meses" },
+  { icon: Truck, label: "Envío a todo el país" },
+  { icon: BadgeCheck, label: "Compra Protegida Mercado Pago" },
 ];
 
 const navLinks = [
@@ -20,26 +21,25 @@ const navLinks = [
 export function GlobalNav() {
   return (
     <header className="sticky top-0 z-50">
-      {/* Top trust bar — hidden on mobile, the same info repeats in the Hero's trust badges */}
-      <div
-        className="hidden md:flex h-8 items-center justify-between px-4 md:px-16"
-        style={{ backgroundColor: "#0A1F44" }}
-      >
-        <nav className="flex items-center gap-4">
-          {trustBullets.map((bullet, index) => (
-            <span key={bullet} className="flex items-center gap-4">
-              <span className="text-white" style={{ fontSize: "12px" }}>
-                {bullet}
-              </span>
-              {index < trustBullets.length - 1 && (
-                <span className="text-white/30 text-xs">|</span>
-              )}
-            </span>
-          ))}
-        </nav>
-        <span className="text-white" style={{ fontSize: "12px" }}>
-          Compra Protegida Mercado Pago
-        </span>
+      {/* Top announcement bar — seamless auto-scrolling carousel, same trust
+          items as the Hero's badges, visible at every breakpoint */}
+      <div className="flex h-8 items-center overflow-hidden" style={{ backgroundColor: "#0A1F44" }}>
+        <div
+          className="w-full"
+          style={{
+            maskImage: "linear-gradient(90deg, transparent, black 6%, black 94%, transparent)",
+            WebkitMaskImage: "linear-gradient(90deg, transparent, black 6%, black 94%, transparent)",
+          }}
+        >
+          <div className="flex w-max animate-marquee gap-8">
+            {[...trustBadges, ...trustBadges].map(({ icon: Icon, label }, i) => (
+              <div key={i} className="flex shrink-0 items-center gap-1.5 text-white">
+                <Icon size={13} style={{ color: "#1E90FF" }} />
+                <span style={{ fontSize: "12px", fontWeight: 600, whiteSpace: "nowrap" }}>{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Main nav */}
