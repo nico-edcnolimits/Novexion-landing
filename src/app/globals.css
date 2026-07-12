@@ -214,6 +214,32 @@
   animation: fadeInUp 0.6s ease forwards;
 }
 
+/* Seamless auto-scrolling carousels (content is duplicated once by the
+   caller, so translating to -50% loops back to the start unnoticed) */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+}
+
+.animate-marquee-slow {
+  animation: marquee 38s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-slow {
+    animation: none;
+  }
+}
+
 /* KSP feature grid — matches Soundcore reference breakpoints */
 .ksp-desktop-grid {
   grid-template-columns: 212fr 288fr 212fr;

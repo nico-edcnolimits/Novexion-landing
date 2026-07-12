@@ -43,20 +43,21 @@ export function HeroSection() {
         className="relative sm:absolute sm:inset-0 flex flex-col justify-between gap-10 sm:gap-0"
         style={{ padding: "clamp(24px, 6vw, 48px) clamp(20px, 6vw, 64px) clamp(20px, 4vw, 32px)" }}
       >
-        <div className="flex flex-col justify-center flex-1 gap-4 md:gap-6" style={{ maxWidth: "560px" }}>
+        {/* Top block: eyebrow + heading */}
+        <div className="flex flex-col gap-3 md:gap-4" style={{ maxWidth: "560px" }}>
           {/* Eyebrow */}
           <p
             className="text-white"
             style={{ fontSize: "clamp(13px, 3vw, 16px)", fontWeight: 500, opacity: 0.9 }}
           >
-            NOVEXION · Traductor con IA en tiempo real
+            Traductor con IA en tiempo real
           </p>
 
           {/* H1 */}
           <h1
             className="text-white"
             style={{
-              fontSize: "clamp(30px, 8vw, 48px)",
+              fontSize: "clamp(26px, 7vw, 42px)",
               fontWeight: 800,
               lineHeight: 1.15,
               letterSpacing: "-0.03em",
@@ -70,7 +71,10 @@ export function HeroSection() {
             <br />
             Oportunidad Perdida
           </h1>
+        </div>
 
+        {/* Bottom block: sub-headline + CTAs + trust badges */}
+        <div className="flex flex-col gap-4 md:gap-6" style={{ maxWidth: "560px" }}>
           {/* Sub-headline */}
           <p
             className="text-white"
@@ -79,17 +83,17 @@ export function HeroSection() {
             No necesitás hablar perfecto. Necesitás entender y responder — al instante, en +140 idiomas.
           </p>
 
-          {/* CTA buttons */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          {/* CTA buttons — side by side even on mobile */}
+          <div className="flex flex-row items-stretch gap-2 sm:gap-3">
             <a
               href={TIENDANUBE_PRODUCT_URL}
-              className="inline-flex items-center justify-center text-center text-white font-bold transition-opacity hover:opacity-90"
+              className="inline-flex flex-1 items-center justify-center text-center text-white font-bold transition-opacity hover:opacity-90"
               style={{
                 backgroundColor: "#1E90FF",
                 border: "1.5px solid #1E90FF",
                 borderRadius: "24px",
-                padding: "12px 24px",
-                fontSize: "clamp(14px, 3.2vw, 16px)",
+                padding: "12px 16px",
+                fontSize: "clamp(12.5px, 3vw, 16px)",
                 fontWeight: 700,
               }}
             >
@@ -97,30 +101,30 @@ export function HeroSection() {
             </a>
             <a
               href="#thus"
-              className="inline-flex items-center justify-center text-center text-white font-bold transition-opacity hover:opacity-90"
+              className="inline-flex flex-1 items-center justify-center text-center text-white font-bold transition-opacity hover:opacity-90"
               style={{
                 backgroundColor: "transparent",
                 border: "1.5px solid white",
                 borderRadius: "24px",
-                padding: "12px 24px",
-                fontSize: "clamp(14px, 3.2vw, 16px)",
+                padding: "12px 16px",
+                fontSize: "clamp(12.5px, 3vw, 16px)",
                 fontWeight: 700,
               }}
             >
               Ver Cómo Funciona
             </a>
           </div>
-        </div>
 
-        {/* Trust badges row — bottom of hero */}
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 md:gap-x-8">
-          {trustBadges.map(({ icon: Icon, label }) => (
-            <div key={label} className="flex items-center gap-2 text-white">
-              <Icon size={16} className="md:hidden" />
-              <Icon size={20} className="hidden md:block" />
-              <span style={{ fontSize: "clamp(11px, 2.8vw, 14px)", fontWeight: 600 }}>{label}</span>
-            </div>
-          ))}
+          {/* Trust badges row */}
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 md:gap-x-8">
+            {trustBadges.map(({ icon: Icon, label }) => (
+              <div key={label} className="flex items-center gap-2 text-white">
+                <Icon size={16} className="md:hidden" />
+                <Icon size={20} className="hidden md:block" />
+                <span style={{ fontSize: "clamp(11px, 2.8vw, 14px)", fontWeight: 600 }}>{label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

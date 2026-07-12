@@ -133,17 +133,20 @@ export function PowerGridSection() {
       />
 
       <div className="relative z-10 mx-auto w-full max-w-[1100px] py-12 md:py-16">
-        {/* Mobile */}
-        <div className="flex flex-col gap-3 md:hidden">
-          <KspCard
-            card={centerCard}
-            className="aspect-[358/273]"
-          />
-          <div className="grid grid-cols-2 gap-3">
-            <KspCard card={leftTop} className="aspect-[173/240]" />
-            <KspCard card={rightTop} className="aspect-[173/240]" />
-            <KspCard card={leftBottom} className="aspect-[173/240]" />
-            <KspCard card={rightBottom} className="aspect-[173/240]" />
+        {/* Mobile: seamless auto-scrolling carousel */}
+        <div
+          className="md:hidden"
+          style={{
+            maskImage: "linear-gradient(90deg, transparent, black 6%, black 94%, transparent)",
+            WebkitMaskImage: "linear-gradient(90deg, transparent, black 6%, black 94%, transparent)",
+          }}
+        >
+          <div className="flex w-max animate-marquee-slow gap-3">
+            {[centerCard, leftTop, rightTop, leftBottom, rightBottom, centerCard, leftTop, rightTop, leftBottom, rightBottom].map(
+              (card, i) => (
+                <KspCard key={`${card.id}-${i}`} card={card} className="w-[210px] shrink-0 aspect-[210/270]" />
+              )
+            )}
           </div>
         </div>
 

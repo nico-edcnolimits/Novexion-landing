@@ -26,6 +26,8 @@ interface PlaceholderImageProps {
   priority?: boolean;
   /** How the image fills its box. "cover" (default) crops to fill; "contain" shows it whole. */
   fit?: "cover" | "contain";
+  /** CSS object-position override for "cover" fit, when the subject isn't centered (e.g. "25% center"). */
+  objectPosition?: string;
 }
 
 /**
@@ -49,6 +51,7 @@ export function PlaceholderImage({
   className,
   priority,
   fit = "cover",
+  objectPosition,
 }: PlaceholderImageProps) {
   const [realAssetMissing, setRealAssetMissing] = useState(false);
   const realSrc = `/images/novexion/${name}.webp`;
@@ -67,6 +70,7 @@ export function PlaceholderImage({
           height={fill ? undefined : height}
           priority={priority}
           className={cn(fitClass, fill ? "" : "w-full h-full")}
+          style={objectPosition ? { objectPosition } : undefined}
           onError={() => setRealAssetMissing(true)}
         />
       </div>

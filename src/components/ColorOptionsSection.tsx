@@ -17,6 +17,7 @@ export function ColorOptionsSection() {
           brief="FOTO REAL: mockup del producto Novexion Q16-H3 con auricular y estuche de carga."
           fill
           fit="cover"
+          objectPosition="25% center"
           priority
           className="rounded-none border-0"
         />
