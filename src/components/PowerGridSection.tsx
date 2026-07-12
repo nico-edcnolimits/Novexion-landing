@@ -87,6 +87,13 @@ function KspCard({ card, className }: KspCardProps) {
         fill
         className="rounded-none border-0"
       />
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0"
+        style={{
+          height: "55%",
+          background: "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.65) 100%)",
+        }}
+      />
       <div className="absolute inset-0 flex flex-col items-center justify-end p-4 xl:p-6 2xl:p-8">
         <p
           className="w-full truncate text-center font-bold leading-[1.2] tracking-[-0.04em] text-[#f5f6f7]"
