@@ -1,14 +1,6 @@
-import { ShieldCheck, Languages, Truck, BadgeCheck } from "lucide-react";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { BackgroundVideo } from "@/components/ui/background-video";
 import { TIENDANUBE_PRODUCT_URL } from "@/lib/store-links";
-
-const trustBadges = [
-  { icon: Languages, label: "+140 idiomas" },
-  { icon: ShieldCheck, label: "Garantía 6 meses" },
-  { icon: Truck, label: "Envío a todo el país" },
-  { icon: BadgeCheck, label: "Compra Protegida Mercado Pago" },
-];
 
 export function HeroSection() {
   return (
@@ -34,11 +26,11 @@ export function HeroSection() {
       {/* Dark overlay for text legibility */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
 
-      {/* Content — single flex column so a taller headline pushes the trust
-          badges down naturally instead of the two overlapping. Flows normally
-          (not absolute) on mobile so it can push the section taller instead
-          of being clipped when the stacked CTAs + wrapped badges need more
-          room than the min-height; becomes a full overlay from sm+ up. */}
+      {/* Content — top block (eyebrow + heading) and bottom block
+          (sub-headline + CTAs) pinned to opposite ends of the section. Flows
+          normally (not absolute) on mobile so it can push the section taller
+          instead of being clipped when the stacked CTAs need more room than
+          the min-height; becomes a full overlay from sm+ up. */}
       <div
         className="relative sm:absolute sm:inset-0 flex flex-col justify-between gap-10 sm:gap-0"
         style={{
@@ -76,7 +68,7 @@ export function HeroSection() {
           </h1>
         </div>
 
-        {/* Bottom block: sub-headline + CTAs + trust badges */}
+        {/* Bottom block: sub-headline + CTAs */}
         <div className="flex flex-col gap-4 md:gap-6" style={{ maxWidth: "560px" }}>
           {/* Sub-headline */}
           <p
@@ -116,17 +108,6 @@ export function HeroSection() {
             >
               Ver Cómo Funciona
             </a>
-          </div>
-
-          {/* Trust badges row */}
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 md:gap-x-8">
-            {trustBadges.map(({ icon: Icon, label }) => (
-              <div key={label} className="flex items-center gap-2 text-white">
-                <Icon size={16} className="md:hidden" />
-                <Icon size={20} className="hidden md:block" />
-                <span style={{ fontSize: "clamp(11px, 2.8vw, 14px)", fontWeight: 600 }}>{label}</span>
-              </div>
-            ))}
           </div>
         </div>
       </div>
