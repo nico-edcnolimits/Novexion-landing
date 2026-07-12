@@ -11,7 +11,7 @@ export function AwardsStrip() {
   return (
     <section
       className="w-full flex flex-col items-center gap-6"
-      style={{ backgroundColor: "#0A1F44", padding: "32px 64px" }}
+      style={{ backgroundColor: "#0A1F44", padding: "24px clamp(20px, 5vw, 64px)" }}
     >
       <p style={{ color: "#a9b4c9", fontSize: "13px", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase" }}>
         Pensado para quienes hablan con turistas todos los días

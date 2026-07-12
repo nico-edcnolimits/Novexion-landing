@@ -35,16 +35,19 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
 
       {/* Content — single flex column so a taller headline pushes the trust
-          badges down naturally instead of the two overlapping */}
+          badges down naturally instead of the two overlapping. Flows normally
+          (not absolute) on mobile so it can push the section taller instead
+          of being clipped when the stacked CTAs + wrapped badges need more
+          room than the min-height; becomes a full overlay from sm+ up. */}
       <div
-        className="absolute inset-0 flex flex-col justify-between"
-        style={{ padding: "48px 64px 32px" }}
+        className="relative sm:absolute sm:inset-0 flex flex-col justify-between gap-10 sm:gap-0"
+        style={{ padding: "clamp(24px, 6vw, 48px) clamp(20px, 6vw, 64px) clamp(20px, 4vw, 32px)" }}
       >
-        <div className="flex flex-col justify-center flex-1 gap-6" style={{ maxWidth: "560px" }}>
+        <div className="flex flex-col justify-center flex-1 gap-4 md:gap-6" style={{ maxWidth: "560px" }}>
           {/* Eyebrow */}
           <p
             className="text-white"
-            style={{ fontSize: "16px", fontWeight: 500, opacity: 0.9 }}
+            style={{ fontSize: "clamp(13px, 3vw, 16px)", fontWeight: 500, opacity: 0.9 }}
           >
             NOVEXION · Traductor con IA en tiempo real
           </p>
@@ -53,7 +56,7 @@ export function HeroSection() {
           <h1
             className="text-white"
             style={{
-              fontSize: "48px",
+              fontSize: "clamp(30px, 8vw, 48px)",
               fontWeight: 800,
               lineHeight: 1.15,
               letterSpacing: "-0.03em",
@@ -71,22 +74,22 @@ export function HeroSection() {
           {/* Sub-headline */}
           <p
             className="text-white"
-            style={{ fontSize: "16px", fontWeight: 500 }}
+            style={{ fontSize: "clamp(14px, 3.2vw, 16px)", fontWeight: 500 }}
           >
             No necesitás hablar perfecto. Necesitás entender y responder — al instante, en +140 idiomas.
           </p>
 
           {/* CTA buttons */}
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <a
               href={TIENDANUBE_PRODUCT_URL}
-              className="inline-flex items-center justify-center text-white font-bold transition-opacity hover:opacity-90 whitespace-nowrap"
+              className="inline-flex items-center justify-center text-center text-white font-bold transition-opacity hover:opacity-90"
               style={{
                 backgroundColor: "#1E90FF",
                 border: "1.5px solid #1E90FF",
                 borderRadius: "24px",
                 padding: "12px 24px",
-                fontSize: "16px",
+                fontSize: "clamp(14px, 3.2vw, 16px)",
                 fontWeight: 700,
               }}
             >
@@ -94,13 +97,13 @@ export function HeroSection() {
             </a>
             <a
               href="#thus"
-              className="inline-flex items-center justify-center text-white font-bold transition-opacity hover:opacity-90 whitespace-nowrap"
+              className="inline-flex items-center justify-center text-center text-white font-bold transition-opacity hover:opacity-90"
               style={{
                 backgroundColor: "transparent",
                 border: "1.5px solid white",
                 borderRadius: "24px",
                 padding: "12px 24px",
-                fontSize: "16px",
+                fontSize: "clamp(14px, 3.2vw, 16px)",
                 fontWeight: 700,
               }}
             >
@@ -110,11 +113,12 @@ export function HeroSection() {
         </div>
 
         {/* Trust badges row — bottom of hero */}
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 md:gap-x-8">
           {trustBadges.map(({ icon: Icon, label }) => (
             <div key={label} className="flex items-center gap-2 text-white">
-              <Icon size={20} />
-              <span style={{ fontSize: "14px", fontWeight: 600 }}>{label}</span>
+              <Icon size={16} className="md:hidden" />
+              <Icon size={20} className="hidden md:block" />
+              <span style={{ fontSize: "clamp(11px, 2.8vw, 14px)", fontWeight: 600 }}>{label}</span>
             </div>
           ))}
         </div>

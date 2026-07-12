@@ -32,11 +32,11 @@ export function ColorOptionsSection() {
       <div className="relative z-10 flex flex-col items-center pt-20 pb-24 px-4">
         <h2
           className="text-white text-center leading-tight"
-          style={{ fontSize: "48px", fontWeight: 800 }}
+          style={{ fontSize: "clamp(28px, 6.5vw, 48px)", fontWeight: 800 }}
         >
           Empezá a Entender Todo, Hoy
         </h2>
-        <p className="text-[#c3cce0] text-center mt-4 max-w-[560px]" style={{ fontSize: "16px" }}>
+        <p className="text-[#c3cce0] text-center mt-4 max-w-[560px]" style={{ fontSize: "clamp(14px, 3.5vw, 16px)" }}>
           Sumá el traductor con IA que te hace ganar tiempo, plata y confianza
           en cada conversación.
         </p>

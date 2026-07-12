@@ -40,7 +40,7 @@ export function FooterSection() {
   return (
     <footer
       className={cn("text-white")}
-      style={{ padding: "60px 64px 40px", backgroundColor: "#0A1F44" }}
+      style={{ padding: "48px clamp(20px, 5vw, 64px) 32px", backgroundColor: "#0A1F44" }}
     >
       <div className="max-w-7xl mx-auto">
         {/* ── 4-column grid ── */}

@@ -34,10 +34,10 @@ const faqs = [
 export function FaqSection() {
   return (
     <section id="faq" className="text-white" style={{ backgroundColor: "#0A1F44" }}>
-      <div className="max-w-[760px] mx-auto px-6 py-24">
+      <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-16 sm:py-24">
         <h2
           className="font-extrabold text-center leading-tight mb-12"
-          style={{ fontSize: "44px" }}
+          style={{ fontSize: "clamp(28px, 6.5vw, 44px)" }}
         >
           Preguntas Frecuentes
         </h2>

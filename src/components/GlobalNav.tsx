@@ -20,9 +20,9 @@ const navLinks = [
 export function GlobalNav() {
   return (
     <header className="sticky top-0 z-50">
-      {/* Top trust bar */}
+      {/* Top trust bar — hidden on mobile, the same info repeats in the Hero's trust badges */}
       <div
-        className="h-8 flex items-center justify-between px-16"
+        className="hidden md:flex h-8 items-center justify-between px-4 md:px-16"
         style={{ backgroundColor: "#0A1F44" }}
       >
         <nav className="flex items-center gap-4">
@@ -45,21 +45,21 @@ export function GlobalNav() {
       {/* Main nav */}
       <nav
         className={cn(
-          "h-20 flex items-center justify-between px-16 bg-white shadow-sm"
+          "h-16 md:h-20 flex items-center justify-between gap-3 px-4 md:px-16 bg-white shadow-sm"
         )}
       >
         {/* Left: Logo + tagline */}
-        <div className="flex items-center gap-3 shrink-0">
-          <a href="#" className="flex items-center gap-3">
+        <div className="flex items-center gap-3 shrink-0 min-w-0">
+          <a href="#" className="flex items-center gap-2 md:gap-3 min-w-0">
             <span
-              className="font-black tracking-tight"
-              style={{ fontSize: "22px", letterSpacing: "-0.03em", color: "#0A1F44" }}
+              className="font-black tracking-tight shrink-0"
+              style={{ fontSize: "clamp(17px, 4vw, 22px)", letterSpacing: "-0.03em", color: "#0A1F44" }}
             >
               NOVEX<span style={{ color: "#1E90FF" }}>I</span>ON
             </span>
-            <span className="text-gray-300 text-lg">|</span>
+            <span className="hidden sm:inline text-gray-300 text-lg shrink-0">|</span>
             <span
-              className="text-gray-500 font-medium"
+              className="hidden sm:inline text-gray-500 font-medium truncate"
               style={{ fontSize: "13px" }}
             >
               Traductor con IA
@@ -83,8 +83,8 @@ export function GlobalNav() {
         </ul>
 
         {/* Right: Icons + CTA */}
-        <div className="flex items-center gap-4 shrink-0">
-          <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 md:gap-4 shrink-0">
+          <div className="hidden sm:flex items-center gap-3">
             <button
               className="text-black hover:text-gray-600 transition-colors"
               aria-label="Buscar"
@@ -104,8 +104,8 @@ export function GlobalNav() {
             style={{
               backgroundColor: "#1E90FF",
               borderRadius: "24px",
-              padding: "10px 20px",
-              fontSize: "14px",
+              padding: "10px 14px",
+              fontSize: "13px",
               fontWeight: 700,
             }}
           >

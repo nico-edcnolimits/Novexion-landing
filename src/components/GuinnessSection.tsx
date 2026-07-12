@@ -34,12 +34,12 @@ export function GuinnessSection() {
       {/* Text block */}
       <div
         className="relative z-10 flex flex-col items-center text-center"
-        style={{ paddingTop: "80px", paddingBottom: "80px", paddingLeft: "32px", paddingRight: "32px" }}
+        style={{ paddingTop: "80px", paddingBottom: "80px", paddingLeft: "clamp(20px, 5vw, 32px)", paddingRight: "clamp(20px, 5vw, 32px)" }}
       >
         <h2
           className="text-white"
           style={{
-            fontSize: "48px",
+            fontSize: "clamp(28px, 6.5vw, 48px)",
             fontFamily: "var(--font-montserrat)",
             fontWeight: 800,
             lineHeight: "1.2",
@@ -52,7 +52,7 @@ export function GuinnessSection() {
         <p
           style={{
             color: "#c3cce0",
-            fontSize: "18px",
+            fontSize: "clamp(14px, 3.5vw, 18px)",
             fontFamily: "var(--font-montserrat)",
             marginBottom: "32px",
           }}
@@ -63,7 +63,7 @@ export function GuinnessSection() {
         {/* Testimonial quote */}
         <blockquote
           className="text-white text-center"
-          style={{ fontSize: "24px", fontWeight: 600, maxWidth: "700px", lineHeight: 1.4, marginBottom: "16px" }}
+          style={{ fontSize: "clamp(18px, 4.5vw, 24px)", fontWeight: 600, maxWidth: "700px", lineHeight: 1.4, marginBottom: "16px" }}
         >
           &ldquo;Antes tenía complicaciones para ofrecer bien mi servicio. Con
           Novexion aumenté considerablemente mis ventas.&rdquo;

@@ -26,7 +26,7 @@ export function HowToUseSection() {
 
       <div
         className="relative z-10 mx-auto w-full max-w-[1200px] px-6"
-        style={{ paddingTop: "170px", paddingBottom: "170px" }}
+        style={{ paddingTop: "clamp(80px, 20vw, 170px)", paddingBottom: "clamp(80px, 20vw, 170px)" }}
       >
         {/* Encabezado */}
         <div className="text-center" style={{ marginBottom: "48px" }}>
@@ -45,7 +45,7 @@ export function HowToUseSection() {
           <h2
             style={{
               color: "#0A1F44",
-              fontSize: "44px",
+              fontSize: "clamp(28px, 6.5vw, 44px)",
               fontWeight: 800,
               lineHeight: 1.15,
               marginBottom: "14px",
@@ -55,7 +55,7 @@ export function HowToUseSection() {
           </h2>
           <p
             className="mx-auto"
-            style={{ color: "#5b6472", fontSize: "18px", lineHeight: 1.6, maxWidth: "620px" }}
+            style={{ color: "#5b6472", fontSize: "clamp(14px, 3.5vw, 18px)", lineHeight: 1.6, maxWidth: "620px" }}
           >
             Descargá la app, conectá el auricular y empezá a conversar. Sin
             configuraciones complicadas.

@@ -27,7 +27,7 @@ export function NoiseReductionSection() {
 
       <div
         className="relative z-10 mx-auto w-full max-w-[1200px] px-6"
-        style={{ paddingTop: "170px", paddingBottom: "170px" }}
+        style={{ paddingTop: "clamp(80px, 20vw, 170px)", paddingBottom: "clamp(80px, 20vw, 170px)" }}
       >
         <div
           className="relative mx-auto w-full"

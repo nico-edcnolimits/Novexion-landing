@@ -24,17 +24,17 @@ const points = [
 export function VoiceControlSection() {
   return (
     <section className="text-white" style={{ backgroundColor: "#071531" }}>
-      <div className="max-w-[1150px] mx-auto px-6 py-24">
+      <div className="max-w-[1150px] mx-auto px-4 sm:px-6 py-16 sm:py-24">
         <div className="text-center mb-14">
           <h2
             className="font-extrabold leading-tight mb-4"
-            style={{ fontSize: "44px" }}
+            style={{ fontSize: "clamp(28px, 6.5vw, 44px)" }}
           >
             Fácil de Usar, Sin Mirar el Celular
           </h2>
           <p
             className="text-[#a9b4c9] mx-auto"
-            style={{ fontSize: "18px", lineHeight: 1.6, maxWidth: "640px" }}
+            style={{ fontSize: "clamp(14px, 3.5vw, 18px)", lineHeight: 1.6, maxWidth: "640px" }}
           >
             Pensado para que lo uses trabajando: manejando, atendiendo o
             caminando, con el celular guardado.

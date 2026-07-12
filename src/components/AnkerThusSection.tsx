@@ -35,13 +35,13 @@ export function AnkerThusSection() {
         {/* Hero block */}
         <div
           className="flex flex-col items-center text-center mx-auto"
-          style={{ padding: "80px 32px 60px", maxWidth: "800px" }}
+          style={{ padding: "clamp(48px, 10vw, 80px) clamp(20px, 5vw, 32px) clamp(40px, 8vw, 60px)", maxWidth: "800px" }}
         >
           {/* Eyebrow */}
           <p
             style={{
               color: "#1E90FF",
-              fontSize: "14px",
+              fontSize: "clamp(12px, 3vw, 14px)",
               fontFamily: "var(--font-montserrat)",
               fontWeight: 600,
               letterSpacing: "0.1em",
@@ -56,7 +56,7 @@ export function AnkerThusSection() {
           <h2
             className="text-white"
             style={{
-              fontSize: "56px",
+              fontSize: "clamp(32px, 8vw, 56px)",
               fontFamily: "var(--font-montserrat)",
               fontWeight: 800,
               lineHeight: "1.1",
@@ -70,14 +70,13 @@ export function AnkerThusSection() {
           <p
             style={{
               color: "#a9b4c9",
-              fontSize: "18px",
+              fontSize: "clamp(14px, 3.5vw, 18px)",
               fontFamily: "var(--font-montserrat)",
               lineHeight: "1.6",
               marginBottom: "40px",
-              whiteSpace: "pre-line",
             }}
           >
-            {"Un motor de traducción por IA que entiende, traduce y responde\nsin que tengas que mirar la pantalla del celular"}
+            Un motor de traducción por IA que entiende, traduce y responde sin que tengas que mirar la pantalla del celular
           </p>
 
           {/* CTA */}
@@ -99,23 +98,18 @@ export function AnkerThusSection() {
           </a>
         </div>
 
-        {/* 3-column feature grid */}
-        <div style={{ padding: "40px 64px 80px" }}>
+        {/* 3-column feature grid — stacks to 1 column on mobile */}
+        <div style={{ padding: "40px clamp(20px, 5vw, 64px) 80px" }}>
           <div
-            className="mx-auto grid"
-            style={{
-              maxWidth: "1200px",
-              gridTemplateColumns: "1fr 1fr 1fr",
-            }}
+            className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0"
+            style={{ maxWidth: "1200px" }}
           >
             {/* Left column */}
             <div
-              className="flex flex-col"
-              style={{
-                padding: "0 40px 0 0",
-                borderRight: "1px solid rgba(255,255,255,0.15)",
-              }}
+              className="flex flex-col items-center text-center md:items-start md:text-left pb-10 md:pb-0 border-b md:border-b-0 md:border-r border-white/15"
+              style={{ padding: "0" }}
             >
+              <div className="md:pr-10 flex flex-col items-center text-center md:items-start md:text-left w-full">
               {/* Icon */}
               <div
                 className="flex items-center justify-center rounded-xl mb-6"
@@ -157,20 +151,18 @@ export function AnkerThusSection() {
                 El auricular capta la voz de la otra persona, incluso con ruido de
                 fondo — sin que nadie tenga que gritar ni repetir.
               </p>
+              </div>
             </div>
 
             {/* Center column */}
             <div
-              className="flex flex-col items-center text-center"
-              style={{
-                padding: "0 40px",
-                borderRight: "1px solid rgba(255,255,255,0.15)",
-              }}
+              className="flex flex-col items-center text-center pb-10 md:pb-0 border-b md:border-b-0 md:border-r border-white/15"
             >
+              <div className="md:px-10 flex flex-col items-center text-center w-full">
               <p
                 style={{
                   color: "#1E90FF",
-                  fontSize: "72px",
+                  fontSize: "clamp(48px, 12vw, 72px)",
                   fontFamily: "var(--font-montserrat)",
                   fontWeight: 900,
                   lineHeight: "1",
@@ -201,13 +193,12 @@ export function AnkerThusSection() {
                 De Europa a Brasil, la IA de traducción cubre los idiomas de la
                 mayoría de los turistas que llegan a Argentina.
               </p>
+              </div>
             </div>
 
             {/* Right column */}
-            <div
-              className="flex flex-col"
-              style={{ padding: "0 0 0 40px" }}
-            >
+            <div className="flex flex-col items-center text-center md:items-start md:text-left">
+              <div className="md:pl-10 flex flex-col items-center text-center md:items-start md:text-left w-full">
               {/* Icon */}
               <div
                 className="flex items-center justify-center rounded-xl mb-6"
@@ -249,6 +240,7 @@ export function AnkerThusSection() {
                 La traducción se escucha directo en el oído, casi sin demora — la
                 conversación sigue su ritmo, sin cortes incómodos.
               </p>
+              </div>
             </div>
           </div>
 

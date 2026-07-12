@@ -29,13 +29,13 @@ export function TrialOfferSection() {
   return (
     <section
       className="w-full flex flex-col items-center"
-      style={{ backgroundColor: "#0A1F44", padding: "80px 64px" }}
+      style={{ backgroundColor: "#0A1F44", padding: "clamp(48px, 10vw, 80px) clamp(20px, 5vw, 64px)" }}
     >
       {/* Heading */}
       <h2
         className="text-white text-center"
         style={{
-          fontSize: "40px",
+          fontSize: "clamp(28px, 6vw, 40px)",
           fontWeight: 800,
           lineHeight: 1.2,
           maxWidth: "700px",
@@ -68,13 +68,13 @@ export function TrialOfferSection() {
         />
         <span
           className="text-white leading-none font-black relative z-10"
-          style={{ fontSize: "200px", fontWeight: 900, lineHeight: 1 }}
+          style={{ fontSize: "clamp(110px, 28vw, 200px)", fontWeight: 900, lineHeight: 1 }}
         >
           6
         </span>
         <span
-          className="text-white font-black relative z-10 -mt-4"
-          style={{ fontSize: "60px", fontWeight: 900, lineHeight: 1 }}
+          className="text-white font-black relative z-10 -mt-4 text-center"
+          style={{ fontSize: "clamp(28px, 7vw, 60px)", fontWeight: 900, lineHeight: 1.1 }}
         >
           Meses de Garantía
         </span>
@@ -83,7 +83,7 @@ export function TrialOfferSection() {
       {/* Offers continue heading */}
       <h3
         className="text-white text-center"
-        style={{ fontSize: "28px", fontWeight: 700 }}
+        style={{ fontSize: "clamp(20px, 5vw, 28px)", fontWeight: 700 }}
       >
         Tus 3 Respaldos al Comprar Novexion
       </h3>
