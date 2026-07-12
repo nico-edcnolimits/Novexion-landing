@@ -8,7 +8,6 @@ interface KspCardData {
   imageName: string;
   imageAlt: string;
   imageBrief: string;
-  align?: "left" | "center";
 }
 
 const sideCards: {
@@ -38,7 +37,7 @@ const sideCards: {
   right: [
     {
       id: "facetoface",
-      title: "Modo Cara a Cara y Altavoz",
+      title: "Modo Altavoz",
       imageSrc: "/images/novexion/feature-facetoface.svg",
       imageName: "feature-facetoface",
       imageAlt: "Modo cara a cara con Novexion",
@@ -47,7 +46,7 @@ const sideCards: {
     },
     {
       id: "bluetooth",
-      title: "Bluetooth 5.4",
+      title: "Batería para Todo el Día",
       imageSrc: "/images/novexion/feature-bluetooth.svg",
       imageName: "feature-bluetooth",
       imageAlt: "Bluetooth 5.4 en Novexion",
@@ -59,13 +58,12 @@ const sideCards: {
 
 const centerCard: KspCardData = {
   id: "chip",
-  title: "Motor de Traducción IA en Tiempo Real",
+  title: "Motor de Traducción IA en Vivo",
   imageSrc: "/images/novexion/product-chip.svg",
   imageName: "ai-engine",
   imageAlt: "Motor de traducción IA de Novexion",
   imageBrief:
     "Ilustración/render real del motor de traducción o del chip, si el proveedor la provee.",
-  align: "center",
 };
 
 interface KspCardProps {
@@ -74,8 +72,6 @@ interface KspCardProps {
 }
 
 function KspCard({ card, className }: KspCardProps) {
-  const align = card.align ?? "left";
-
   return (
     <article
       className={cn(
@@ -91,16 +87,11 @@ function KspCard({ card, className }: KspCardProps) {
         fill
         className="rounded-none border-0"
       />
-      <div
-        className={cn(
-          "absolute inset-0 flex flex-col justify-start p-4 xl:p-6 2xl:p-8",
-          align === "center" ? "items-center text-center" : "items-start text-left"
-        )}
-      >
+      <div className="absolute inset-0 flex flex-col items-center justify-end p-4 xl:p-6 2xl:p-8">
         <p
-          className="font-bold leading-[1.2] tracking-[-0.04em] text-[#f5f6f7]"
+          className="w-full truncate text-center font-bold leading-[1.2] tracking-[-0.04em] text-[#f5f6f7]"
           style={{
-            fontSize: "clamp(18px, 1.25vw, 24px)",
+            fontSize: "clamp(10px, 1.1vw, 24px)",
             textShadow:
               "0 2px 10px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.9), 0 0 24px rgba(0,0,0,0.6)",
           }}
