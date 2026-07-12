@@ -41,7 +41,10 @@ export function HeroSection() {
           room than the min-height; becomes a full overlay from sm+ up. */}
       <div
         className="relative sm:absolute sm:inset-0 flex flex-col justify-between gap-10 sm:gap-0"
-        style={{ padding: "clamp(24px, 6vw, 48px) clamp(20px, 6vw, 64px) clamp(20px, 4vw, 32px)" }}
+        style={{
+          minHeight: "calc(100vh - 126px)",
+          padding: "clamp(24px, 6vw, 48px) clamp(20px, 6vw, 64px) clamp(20px, 4vw, 32px)",
+        }}
       >
         {/* Top block: eyebrow + heading */}
         <div className="flex flex-col gap-3 md:gap-4" style={{ maxWidth: "560px" }}>
