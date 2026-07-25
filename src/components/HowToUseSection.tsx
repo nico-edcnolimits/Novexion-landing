@@ -1,5 +1,13 @@
+import fs from "node:fs";
+import path from "node:path";
 import { Download, Bluetooth, MessageCircle } from "lucide-react";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
+
+// Versión vertical del infográfico para mobile — si todavía no se subió el
+// archivo real, se usan los pasos numerados como respaldo en su lugar.
+const comoUsarMobileExists = fs.existsSync(
+  path.join(process.cwd(), "public/images/novexion/como-usar-mobile.webp")
+);
 
 const steps = [
   {
@@ -81,29 +89,48 @@ export function HowToUseSection() {
           </p>
         </div>
 
-        {/* Mobile: pasos numerados (la imagen panorámica queda ilegible en pantallas chicas) */}
-        <div className="flex flex-col gap-4 md:hidden">
-          {steps.map(({ icon: Icon, title, text }) => (
-            <div
-              key={title}
-              className="flex items-start gap-4 rounded-2xl border p-5"
-              style={{ borderColor: "#e3e7ee", backgroundColor: "#f7f9fc" }}
-            >
+        {/* Mobile: imagen vertical del infográfico si ya está subida; si no,
+            pasos numerados como respaldo (la imagen panorámica de desktop
+            queda ilegible en pantallas chicas) */}
+        {comoUsarMobileExists ? (
+          <div
+            className="relative mx-auto w-full md:hidden"
+            style={{ maxWidth: "420px", aspectRatio: "1493 / 2000" }}
+          >
+            <PlaceholderImage
+              illustration="/images/novexion/translation-bg.svg"
+              name="como-usar-mobile"
+              alt="Cómo usar Novexion en 3 pasos: descargá la app, conectá el auricular y conversá en tu idioma"
+              brief="Versión vertical del infográfico de 3 pasos (Descarga / Conecta / Conversa), pensada para mobile."
+              fill
+              fit="contain"
+              className="rounded-none border-0"
+            />
+          </div>
+        ) : (
+          <div className="flex flex-col gap-4 md:hidden">
+            {steps.map(({ icon: Icon, title, text }) => (
               <div
-                className="flex shrink-0 items-center justify-center rounded-xl"
-                style={{ width: "48px", height: "48px", backgroundColor: "rgba(30,144,255,0.12)" }}
+                key={title}
+                className="flex items-start gap-4 rounded-2xl border p-5"
+                style={{ borderColor: "#e3e7ee", backgroundColor: "#f7f9fc" }}
               >
-                <Icon size={24} style={{ color: "#1E90FF" }} />
+                <div
+                  className="flex shrink-0 items-center justify-center rounded-xl"
+                  style={{ width: "48px", height: "48px", backgroundColor: "rgba(30,144,255,0.12)" }}
+                >
+                  <Icon size={24} style={{ color: "#1E90FF" }} />
+                </div>
+                <div>
+                  <h3 style={{ color: "#0A1F44", fontWeight: 700, fontSize: "17px", marginBottom: "4px" }}>
+                    {title}
+                  </h3>
+                  <p style={{ color: "#5b6472", fontSize: "14px", lineHeight: 1.6 }}>{text}</p>
+                </div>
               </div>
-              <div>
-                <h3 style={{ color: "#0A1F44", fontWeight: 700, fontSize: "17px", marginBottom: "4px" }}>
-                  {title}
-                </h3>
-                <p style={{ color: "#5b6472", fontSize: "14px", lineHeight: 1.6 }}>{text}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         {/* Desktop: infográfico completo (fondo blanco, se integra con el fondo de la sección) */}
         <div
