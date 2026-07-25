@@ -53,7 +53,7 @@ export function HowToUseSection() {
 
       <div
         className="relative z-10 mx-auto w-full max-w-[1200px] px-6"
-        style={{ paddingTop: "clamp(80px, 20vw, 170px)", paddingBottom: "clamp(165px, 20vw, 170px)" }}
+        style={{ paddingTop: "clamp(165px, 20vw, 170px)", paddingBottom: "clamp(165px, 20vw, 170px)" }}
       >
         {/* Encabezado */}
         <div className="text-center" style={{ marginBottom: "48px" }}>
